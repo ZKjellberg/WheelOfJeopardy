@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="FortuneView">
+        <attr name="spinSensitivity" format="float"/>
+        <attr name="frameRate" format="float"/>
+        <attr name="friction" format="float"/>
+        <attr name="velocityClamp" format="float"/>
+        <attr name="flingable" format="boolean"/>
+        <attr name="grooves" format="boolean"/>
+        <attr name="unselectScaleOffset" format="float"/>
+        <attr name="selectScaleOffset" format="float"/>
+        <attr name="notch" format="integer"/>
+        <attr name="distanceScale" format="float"/>
+        <attr name="centripetalPercent" format="float"/>
+        <attr name="background" format="integer"/>
+        <attr name="backgroundHinge" format="enum">
+            <enum name="fixed" value="0"/>
+            <enum name="hinge" value="1"/>
+        </attr>
+        <attr name="backgroundScale" format="float"/>
+        <attr name="backgroundCentripetalForce" format="boolean"/>
+        <attr name="minimumSize" format="float"/>
+    </declare-styleable>
+
+
+
+</resources>
