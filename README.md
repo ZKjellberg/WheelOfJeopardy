@@ -70,6 +70,6 @@ them based on ease of use by the players and ease of implementation in the softw
 * It would be nice to have “Jeopardy” and “Double Jeopardy” squares, as in the TV
 game. The wagering rules would be the same as on TV.
 
-Here are the official websites of the two TV game shows:
-http://www.wheeloffortune.com/
+Here are the official websites of the two TV game shows:  
+http://www.wheeloffortune.com/  
 http://www.jeopardy.com/
