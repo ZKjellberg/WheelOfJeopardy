@@ -69,7 +69,7 @@ public class FortuneView extends View implements RedrawListener{
             notch = a.getInteger(R.styleable.FortuneView_notch, 90);
             distanceScale = a.getFloat(R.styleable.FortuneView_distanceScale, 1);
             centripetalPercent = a.getFloat(R.styleable.FortuneView_centripetalPercent, 0f);
-            backgroundResourceId = a.getResourceId(R.styleable.FortuneView_background, -1);
+            backgroundResourceId = a.getResourceId(R.styleable.FortuneView_backgroundid, -1);
             if(a.getInteger(R.styleable.FortuneView_backgroundHinge, 0) == 0) {
                 backgroundHinge = FortuneItem.HingeType.Fixed;
             } else {
