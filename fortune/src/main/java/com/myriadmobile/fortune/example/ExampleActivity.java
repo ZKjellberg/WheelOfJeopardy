@@ -3,9 +3,7 @@ package com.myriadmobile.fortune.example;
 import android.app.Activity;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import com.myriadmobile.fortune.FortuneItem;
 import com.myriadmobile.fortune.FortuneView;
@@ -26,7 +24,7 @@ public class ExampleActivity extends Activity {
 
         fortuneView = (FortuneView) findViewById(R.id.dialView);
 
-        ArrayList<FortuneItem> dis = new ArrayList<FortuneItem>();
+        ArrayList<FortuneItem> dis = new ArrayList<>();
         /*
         dis.add(new DialItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_always_landscape_portrait)));
         dis.add(new DialItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_add)));
@@ -69,7 +67,7 @@ public class ExampleActivity extends Activity {
 
         fortuneView.addFortuneItems(dis);
 
-        ((Button)findViewById(R.id.btRandom)).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btRandom).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Random ran = new Random();
