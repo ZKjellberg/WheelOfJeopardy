@@ -1,0 +1,476 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:padding="8dp"
+    android:stretchColumns="1,2,3,4,5,6"
+    tools:context="mobicent.com.wheelofjeopardy.Fragments.JeopardyBoardFragment">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/category1title"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/category_one"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category2title"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="1"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/category_two"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category3title"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="2"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/category_three"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#ffffe60f" />
+
+        <TextView
+            android:id="@+id/category4title"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="3"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/category_four"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category5title"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="4"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/category_five"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category6title"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="5"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/category_six"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/category1_100"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_one"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category2_100"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="1"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_one"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category3_100"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="2"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_one"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category4_100"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="3"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_one"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category5_100"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="4"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_one"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category6_100"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="5"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_one"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/category1_200"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_two"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category2_200"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="1"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_two"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category3_200"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="2"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_two"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category4_200"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="3"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_two"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category5_200"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="4"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_two"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category6_200"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="5"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_two"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/category1_300"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_three"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category2_300"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="1"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_three"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category3_300"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="2"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_three"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category4_300"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="3"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_three"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category5_300"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="4"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_three"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category6_300"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="5"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_three"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/category1_400"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_four"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category2_400"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="1"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_four"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category3_400"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="2"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_four"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category4_400"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="3"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_four"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category5_400"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="4"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_four"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category6_400"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="5"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_four"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/category1_500"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="0"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_five"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category2_500"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="1"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_five"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category3_500"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="2"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_five"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category4_500"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="3"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_five"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category5_500"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="4"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_five"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+
+        <TextView
+            android:id="@+id/category6_500"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_column="5"
+            android:layout_weight="1"
+            android:background="@color/jeopardyBlue"
+            android:gravity="center"
+            android:text="@string/hundred_five"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/jeopardyYellow" />
+    </TableRow>
+</TableLayout>
