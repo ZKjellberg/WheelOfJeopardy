@@ -45,7 +45,7 @@
             android:gravity="center"
             android:text="@string/category_three"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#ffffe60f" />
+            android:textColor="@color/jeopardyYellow" />
 
         <TextView
             android:id="@+id/category4title"
