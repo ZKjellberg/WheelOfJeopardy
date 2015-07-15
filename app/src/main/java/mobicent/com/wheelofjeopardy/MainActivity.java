@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import mobicent.com.wheelofjeopardy.Fragments.JeopardyBoardFragment;
+import mobicent.com.wheelofjeopardy.Fragments.BoardFragment;
 import mobicent.com.wheelofjeopardy.Fragments.WheelFragment;
 
 
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
                     .add(R.id.containerWheel, new WheelFragment())
                     .commit();
             getFragmentManager().beginTransaction()
-                    .add(R.id.containerBoard, new JeopardyBoardFragment())
+                    .add(R.id.containerBoard, new BoardFragment())
                     .commit();
         }
     }

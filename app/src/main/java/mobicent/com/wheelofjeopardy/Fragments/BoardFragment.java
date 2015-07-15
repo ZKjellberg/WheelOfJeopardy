@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import mobicent.com.wheelofjeopardy.R;
 
 
-public class JeopardyBoardFragment extends Fragment {
+public class BoardFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
