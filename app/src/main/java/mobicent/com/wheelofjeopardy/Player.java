@@ -3,41 +3,36 @@ package mobicent.com.wheelofjeopardy;
 /**
  * Created by gkuruc on 6/28/15.
  */
-public class Team
-{
+public class Player {
     String name;
     int score;
+    int roundScore;
     int tokens;
 
-    public Team(String n)
-    {
-        name = n;
+    public Player(String name) {
+        this.name = name;
         score = 0;
+        roundScore = 0;
         tokens = 0;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public int getScore()
-    {
+    public int getScore() {
         return score;
     }
 
-    public void updateScore(int points)
-    {
+    public void updateScore(int points) {
         score += points;
     }
 
-    public int getTokens()
-    {
+    public int getTokens() {
         return tokens;
     }
 
-    public void addToken()
-    {
+    public void addToken() {
         tokens++;
     }
 }

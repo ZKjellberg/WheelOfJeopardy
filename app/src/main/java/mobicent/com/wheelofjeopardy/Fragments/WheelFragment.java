@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.myriadmobile.fortune.FortuneItem;
 import com.myriadmobile.fortune.FortuneView;
+import com.myriadmobile.fortune.GrooveListener;
 import com.myriadmobile.fortune.R;
 
 import java.util.ArrayList;
@@ -67,6 +68,14 @@ public class WheelFragment extends Fragment {
 //        sectors.add(new FortuneItem(Color.MAGENTA, 1));
 
         fortuneView.addFortuneItems(sectors);
+
+        // Below seems to only respond to touch events, not spin results
+        fortuneView.setGrooveListener(new GrooveListener() {
+            @Override
+            public void onGrooveChange(int index) {
+                Toast.makeText(getActivity(), "Test", Toast.LENGTH_LONG).show();
+            }
+        });
 
         v.findViewById(R.id.btRandom).setOnClickListener(new View.OnClickListener() {
             @Override
