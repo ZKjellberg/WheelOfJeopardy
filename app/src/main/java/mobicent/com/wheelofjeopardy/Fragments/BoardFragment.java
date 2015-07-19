@@ -13,13 +13,11 @@ import java.util.ArrayList;
 
 import mobicent.com.wheelofjeopardy.Board;
 import mobicent.com.wheelofjeopardy.Category;
+import mobicent.com.wheelofjeopardy.MainActivity;
 import mobicent.com.wheelofjeopardy.R;
 
 
 public class BoardFragment extends Fragment {
-
-    Board board;
-    InputStream stream;
 
     TextView cat1, cat2, cat3, cat4, cat5, cat6;
 
@@ -34,17 +32,8 @@ public class BoardFragment extends Fragment {
         cat5 = (TextView) v.findViewById(R.id.category5title);
         cat6 = (TextView) v.findViewById(R.id.category6title);
 
-        try {
-            stream = getActivity().getAssets().open("test.xml");
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+        ArrayList<Category> categories = ((MainActivity) getActivity()).getBoard().getCategories();
 
-        board = new Board(stream);
-
-        ArrayList<Category> categories = board.getCategories();
         cat1.setText(categories.get(0).name);
         cat2.setText(categories.get(1).name);
         cat3.setText(categories.get(2).name);

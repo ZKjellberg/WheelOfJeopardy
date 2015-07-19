@@ -1,6 +1,9 @@
 package mobicent.com.wheelofjeopardy.Fragments;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,11 +20,18 @@ import com.myriadmobile.fortune.R;
 import java.util.ArrayList;
 import java.util.Random;
 
+import mobicent.com.wheelofjeopardy.Board;
+import mobicent.com.wheelofjeopardy.Category;
+import mobicent.com.wheelofjeopardy.Question;
+import mobicent.com.wheelofjeopardy.MainActivity;
+
 
 public class WheelFragment extends Fragment {
 
     FortuneView fortuneView;
     TextView txtResult;
+
+    Board board;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,6 +39,8 @@ public class WheelFragment extends Fragment {
 
         fortuneView = (FortuneView) v.findViewById(R.id.dialView);
         txtResult = (TextView) v.findViewById(mobicent.com.wheelofjeopardy.R.id.txtResult);
+
+        board = ((MainActivity) getActivity()).getBoard();
 
         ArrayList<FortuneItem> sectors = new ArrayList<>();
 //        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_always_landscape_portrait)));
@@ -105,25 +117,32 @@ public class WheelFragment extends Fragment {
             // If all of the questions in the selected category have been answered, the player must spin again.
             case 1 :
                 // Question Category 1
+                createDialog(0);
                 Toast.makeText(getActivity(), "Question Category 1", Toast.LENGTH_SHORT).show();
+
                 break;
             case 2 :
+                createDialog(1);
                 Toast.makeText(getActivity(), "Question Category 2", Toast.LENGTH_SHORT).show();
                 // Question Category 2
                 break;
             case 3 :
+                createDialog(2);
                 Toast.makeText(getActivity(), "Question Category 3", Toast.LENGTH_SHORT).show();
                 // Question Category 3
                 break;
             case 4 :
+                createDialog(3);
                 Toast.makeText(getActivity(), "Question Category 4", Toast.LENGTH_SHORT).show();
                 // Question Category 4
                 break;
             case 5 :
+                createDialog(4);
                 Toast.makeText(getActivity(), "Question Category 5", Toast.LENGTH_SHORT).show();
                 // Question Category 5
                 break;
             case 6 :
+                createDialog(5);
                 Toast.makeText(getActivity(), "Question Category 6", Toast.LENGTH_SHORT).show();
                 // Question Category 6
                 break;
@@ -172,5 +191,22 @@ public class WheelFragment extends Fragment {
                 spinWheel();
                 break;
         }
+    }
+
+    public void createDialog(int catNumber) {
+
+        Category currentCategory = board.getCategory(catNumber);
+        Question currentQuestion = currentCategory.getNextQuestion();
+        CharSequence[] items = currentQuestion.getOptions();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle(currentQuestion.getQuestion())
+                .setItems(items, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // The 'which' argument contains the index position
+                        // of the selected item
+                    }
+                });
+        builder.create().show();
     }
 }

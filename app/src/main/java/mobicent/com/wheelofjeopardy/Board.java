@@ -92,4 +92,9 @@ public class Board
     {
         return categories;
     }
+
+    public Category getCategory(int catNumber)
+    {
+        return categories.get(catNumber);
+    }
 }

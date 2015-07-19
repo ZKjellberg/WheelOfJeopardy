@@ -5,11 +5,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import mobicent.com.wheelofjeopardy.Fragments.BoardFragment;
 import mobicent.com.wheelofjeopardy.Fragments.WheelFragment;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    static Board board;
+    InputStream stream;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +31,16 @@ public class MainActivity extends AppCompatActivity {
                     .add(R.id.containerBoard, new BoardFragment())
                     .commit();
         }
+
+        try {
+            stream = getAssets().open("test.xml");
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        board = new Board(stream);
     }
 
 
@@ -48,5 +64,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public Board getBoard()
+    {
+        return board;
     }
 }
