@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -27,7 +25,7 @@ public class BoardFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_jeopardy_board, container, false);
+        View v = inflater.inflate(R.layout.fragment_board, container, false);
 
         cat1 = (TextView) v.findViewById(R.id.category1title);
         cat2 = (TextView) v.findViewById(R.id.category2title);
