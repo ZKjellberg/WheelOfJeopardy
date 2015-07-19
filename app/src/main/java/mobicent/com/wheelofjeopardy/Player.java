@@ -35,4 +35,12 @@ public class Player {
     public void addToken() {
         tokens++;
     }
+
+    public int getRoundScore() {
+        return roundScore;
+    }
+
+    public void setRoundScore(int roundScore) {
+        this.roundScore = roundScore;
+    }
 }
