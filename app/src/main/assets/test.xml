@@ -174,89 +174,89 @@
         </box>
     </category>
     <category>
-        <name>Sports</name>
+        <name>Soccer</name>
         <box>
             <points>100</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>Which team does Lionel Messi play for?</question>
+            <correct>Barcelona</correct>
+            <incorrect>Real Madrid</incorrect>
+            <incorrect>Bayern Munich</incorrect>
+            <incorrect>Athletica Madrid</incorrect>
         </box>
         <box>
             <points>200</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>Which team started the tradition of singing the "You'll Never Walk Alone" anthem?</question>
+            <correct>Liverpool</correct>
+            <incorrect>Manchester United</incorrect>
+            <incorrect>Arsenal</incorrect>
+            <incorrect>Chelsea</incorrect>
         </box>
         <box>
             <points>300</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>Who won the 2014 FIFA World Cup?</question>
+            <correct>Germany</correct>
+            <incorrect>Spain</incorrect>
+            <incorrect>U.S.A.</incorrect>
+            <incorrect>Brazil</incorrect>
         </box>
         <box>
             <points>400</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>Which team is known as the Invincibles?</question>
+            <correct>Arsenal</correct>
+            <incorrect>Chelsea</incorrect>
+            <incorrect>Manchester United</incorrect>
+            <incorrect>Liverpool</incorrect>
         </box>
         <box>
             <points>500</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>Who won the 2015 UEFA Champions League Final?</question>
+            <correct>Barcelona</correct>
+            <incorrect>Juventus</incorrect>
+            <incorrect>Atlético Madrid</incorrect>
+            <incorrect>Bayern Munich</incorrect>
         </box>
     </category>
     <category>
         <name>History</name>
         <box>
             <points>100</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>What year did World War I start?</question>
+            <correct>1914</correct>
+            <incorrect>1913</incorrect>
+            <incorrect>1915</incorrect>
+            <incorrect>1916</incorrect>
         </box>
         <box>
             <points>200</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>What was the name of the man who killed Archduke Franz Ferdinand, starting World War I?</question>
+            <correct>Gavrilo Princip</correct>
+            <incorrect>Edmund Gerde</incorrect>
+            <incorrect>Nedeljko Čabrinović</incorrect>
+            <incorrect>Oskar Potiorek</incorrect>
         </box>
         <box>
             <points>300</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>Who was the first Emperor of Rome?</question>
+            <correct>Augustus Caesar</correct>
+            <incorrect>Julius Caesar</incorrect>
+            <incorrect>Mark Anthony</incorrect>
+            <incorrect>Justinian I</incorrect>
         </box>
         <box>
             <points>400</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>What year did the Korean War start?</question>
+            <correct>1950</correct>
+            <incorrect> 1948</incorrect>
+            <incorrect>1952</incorrect>
+            <incorrect>1954</incorrect>
         </box>
         <box>
             <points>500</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>Which country has never invaded Afghanistan?</question>
+            <correct>China</correct>
+            <incorrect>United Kingdom</incorrect>
+            <incorrect>United States,</incorrect>
+            <incorrect>Russia</incorrect>
         </box>
     </category>
 </game>
