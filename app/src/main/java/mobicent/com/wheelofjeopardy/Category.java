@@ -18,7 +18,9 @@ public class Category
     {
         if(questionNumber < 6) {
             questionNumber++;
+            return questions.get(questionNumber);
+        } else {
+            return null;
         }
-        return questions.get(questionNumber);
     }
 }

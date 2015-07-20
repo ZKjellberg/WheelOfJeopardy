@@ -59,6 +59,7 @@ public class WheelFragment extends Fragment {
 //        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_mapmode), FortuneItem.HingeType.Fixed));
 //        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_save), FortuneItem.HingeType.Fixed));
 
+        // TODO: Did removing 0 mess up the order? Is image_1 now index 0?
 //        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_0)));
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_1)));
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_2)));
@@ -80,17 +81,35 @@ public class WheelFragment extends Fragment {
 
         fortuneView.addFortuneItems(sectors);
 
+
         v.findViewById(R.id.btRandom).setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View view) {
                 spinWheel();
+                // TODO: For testing category dialog, remove when functional
+//                chooseCategoryDialog();
             }
         });
+
+
+
 
         return v;
     }
 
     private void spinWheel() {
+        // TODO: 50 spins for first round
+        int spinCounter = 50;
+        spinCounter--;
+        if (spinCounter == 0) {
+            // start round 2
+            int scoreModifier = 1;
+            // if round2
+            scoreModifier = 2;
+        }
+
         Random ran = new Random();
 //        int spinResult = (int) (Math.random()*12);   // This does not depend on Fortune Wheel
         int spinResult = ran.nextInt(fortuneView.getTotalItems());
@@ -210,8 +229,18 @@ public class WheelFragment extends Fragment {
 
     public void chooseCategoryDialog() {
         // TODO: How to convert questions into CharSequence[]
-        ArrayList<Category> list = board.getCategories();
-        CharSequence[] items = list.toArray(new CharSequence[list.size()]);;
+        ArrayList<Category> categories = board.getCategories();
+
+        // There is probably an easier way to convert Categories into a CharSequence
+        // Below comment seems to do it, but gives an error because it returns object type Categories, not the names
+        // CharSequence[] items = categories.toArray(new CharSequence[categories.size()]);;
+        // Start conversion using alt method
+        final CharSequence[] items = new CharSequence[categories.size()];
+        int index = 0;
+        for (Category category : categories) {
+            items[index++] = category.name;
+        }
+        // End of conversion
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Choose category")
@@ -219,7 +248,10 @@ public class WheelFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         // The 'which' argument contains the index position
                         // of the selected item
-                        // TODO: createDialog(which)
+                        Toast.makeText(getActivity(), ""+items[which], Toast.LENGTH_SHORT).show();
+                        // TODO: which returns the index, how do we handle the scenario of
+                        // TODO: createDialog only accepts int, not Strings
+                         //createDialog(""+items[which]);
                     }
                 });
         builder.create().show();
