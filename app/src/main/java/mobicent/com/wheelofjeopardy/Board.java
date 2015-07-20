@@ -1,13 +1,12 @@
 package mobicent.com.wheelofjeopardy;
 
-import android.util.Xml;
-import java.io.InputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-
 import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserFactory;
 import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 /**
  * Created by gkuruc on 7/19/15.
@@ -90,6 +89,7 @@ public class Board
 
     public ArrayList<Category> getCategories()
     {
+        // TODO: How to determine which categories do not have available questions.
         return categories;
     }
 
