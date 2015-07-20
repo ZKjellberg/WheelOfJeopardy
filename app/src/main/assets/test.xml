@@ -45,7 +45,7 @@
         </box>
     </category>
     <category>
-        <name>Math</name>
+        <name>Music</name>
         <box>
             <points>100</points>
             <question>What is the 3rd planet from the sun?</question>
@@ -88,7 +88,7 @@
         </box>
     </category>
     <category>
-        <name>English</name>
+        <name>?English</name>
         <box>
             <points>100</points>
             <question>What is the 3rd planet from the sun?</question>
@@ -131,7 +131,7 @@
         </box>
     </category>
     <category>
-        <name>History</name>
+        <name>?Music</name>
         <box>
             <points>100</points>
             <question>What is the 3rd planet from the sun?</question>
@@ -217,7 +217,7 @@
         </box>
     </category>
     <category>
-        <name>Music</name>
+        <name>History</name>
         <box>
             <points>100</points>
             <question>What is the 3rd planet from the sun?</question>
