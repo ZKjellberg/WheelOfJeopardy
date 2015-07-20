@@ -45,7 +45,50 @@
         </box>
     </category>
     <category>
-        <name>Math</name>
+        <name>Music</name>
+        <box>
+            <points>100</points>
+            <question>What is the 3rd planet from the sun?</question>
+            <correct>Earth</correct>
+            <incorrect>Venus</incorrect>
+            <incorrect>Mars</incorrect>
+            <incorrect>Jupiter</incorrect>
+        </box>
+        <box>
+            <points>200</points>
+            <question>What is the 3rd planet from the sun?</question>
+            <correct>Earth</correct>
+            <incorrect>Venus</incorrect>
+            <incorrect>Mars</incorrect>
+            <incorrect>Jupiter</incorrect>
+        </box>
+        <box>
+            <points>300</points>
+            <question>What is the 3rd planet from the sun?</question>
+            <correct>Earth</correct>
+            <incorrect>Venus</incorrect>
+            <incorrect>Mars</incorrect>
+            <incorrect>Jupiter</incorrect>
+        </box>
+        <box>
+            <points>400</points>
+            <question>What is the 3rd planet from the sun?</question>
+            <correct>Earth</correct>
+            <incorrect>Venus</incorrect>
+            <incorrect>Mars</incorrect>
+            <incorrect>Jupiter</incorrect>
+        </box>
+        <box>
+            <points>500</points>
+            <question>What is the 3rd planet from the sun?</question>
+            <correct>Earth</correct>
+            <incorrect>Venus</incorrect>
+            <incorrect>Mars</incorrect>
+            <incorrect>Jupiter</incorrect>
+        </box>
+    </category>
+    <category>
+        <name>Pop Culture</name>
         <box>
             <points>100</points>
             <question>What is the 3rd planet from the sun?</question>
@@ -131,49 +174,6 @@
         </box>
     </category>
     <category>
-        <name>History</name>
-        <box>
-            <points>100</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
-        </box>
-        <box>
-            <points>200</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
-        </box>
-        <box>
-            <points>300</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
-        </box>
-        <box>
-            <points>400</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
-        </box>
-        <box>
-            <points>500</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
-        </box>
-    </category>
-    <category>
         <name>Sports</name>
         <box>
             <points>100</points>
@@ -217,7 +217,7 @@
         </box>
     </category>
     <category>
-        <name>Music</name>
+        <name>History</name>
         <box>
             <points>100</points>
             <question>What is the 3rd planet from the sun?</question>
