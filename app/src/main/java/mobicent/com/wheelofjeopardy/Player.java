@@ -40,7 +40,15 @@ public class Player {
         return roundScore;
     }
 
-    public void setRoundScore(int roundScore) {
-        this.roundScore = roundScore;
+    public void increaseRoundScore(int points) {
+        roundScore += points;
+    }
+
+    public void decreaseRoundScore(int points) {
+        roundScore -= points;
+    }
+
+    public void resetRoundScore() {
+        roundScore = 0;
     }
 }
