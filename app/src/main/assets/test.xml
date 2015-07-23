@@ -91,86 +91,86 @@
         <name>Pop Culture</name>
         <box>
             <points>100</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>Who was made famous after releasing her own sex-tape?</question>
+            <correct>Kim Kardashian</correct>
+            <incorrect>Janet Reno</incorrect>
+            <incorrect>Madonna</incorrect>
+            <incorrect>Tara Reid</incorrect>
         </box>
         <box>
             <points>200</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>Who played Ross in the hit TV show "Friends"?</question>
+            <correct>David Schwimmer</correct>
+            <incorrect>Matthew Perry</incorrect>
+            <incorrect>George Clooney</incorrect>
+            <incorrect>Matt Damon</incorrect>
         </box>
         <box>
             <points>300</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>From which movie did the character Raymond Babbitt originate?</question>
+            <correct>Rain Man</correct>
+            <incorrect>The Shawshank Redemption</incorrect>
+            <incorrect>The Help</incorrect>
+            <incorrect>Hot Tub Time Machine</incorrect>
         </box>
         <box>
             <points>400</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>What historic figure was Morpheus from The Matrix based on?</question>
+            <correct>John the Baptist</correct>
+            <incorrect>John Paul Jones</incorrect>
+            <incorrect>Patrick Henry</incorrect>
+            <incorrect>King Henry IIIV</incorrect>
         </box>
         <box>
             <points>500</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>What movie was the highest grossing of all time?</question>
+            <correct>Avatar</correct>
+            <incorrect>Titanic</incorrect>
+            <incorrect>Jurassic World</incorrect>
+            <incorrect>The Avengers</incorrect>
         </box>
     </category>
     <category>
-        <name>English</name>
+        <name>Politics</name>
         <box>
             <points>100</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>What country recently made a nuclear materials deal with the US?</question>
+            <correct>Iran</correct>
+            <incorrect>Iraq</incorrect>
+            <incorrect>Cuba</incorrect>
+            <incorrect>China</incorrect>
         </box>
         <box>
             <points>200</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>Bill de Blasio is the mayor of what US city?</question>
+            <correct>New York City, NY</correct>
+            <incorrect>Washington, DC</incorrect>
+            <incorrect>Miami, FL</incorrect>
+            <incorrect>Harrisburg, PA</incorrect>
         </box>
         <box>
             <points>300</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>Who is the senate Senate Majority Leader?</question>
+            <correct>Mitch McConnel</correct>
+            <incorrect>Harry Reid</incorrect>
+            <incorrect>Nanci Pelosi</incorrect>
+            <incorrect>Hillary Clinton</incorrect>
         </box>
         <box>
             <points>400</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>This US state had the highest rate of immigration in 2012.</question>
+            <correct>California</correct>
+            <incorrect>Texas</incorrect>
+            <incorrect>Florida</incorrect>
+            <incorrect>Arizona</incorrect>
         </box>
         <box>
             <points>500</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>Who was the White House Press Secretary from 2007 to 2009?</question>
+            <correct>Dana Perino</correct>
+            <incorrect>Josh Earnest</incorrect>
+            <incorrect>Jay Carney</incorrect>
+            <incorrect>Jen Psaki</incorrect>
         </box>
     </category>
     <category>
