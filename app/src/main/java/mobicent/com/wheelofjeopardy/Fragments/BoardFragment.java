@@ -1,17 +1,14 @@
-package mobicent.com.wheelofjeopardy.Fragments;
+package mobicent.com.wheelofjeopardy.fragments;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
-import mobicent.com.wheelofjeopardy.Board;
 import mobicent.com.wheelofjeopardy.Category;
 import mobicent.com.wheelofjeopardy.MainActivity;
 import mobicent.com.wheelofjeopardy.R;

@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Board
 {
-    ArrayList<Category> categories = new ArrayList<Category>();
+    ArrayList<Category> categories = new ArrayList<>();
 
     public Board(InputStream stream)
     {
@@ -41,7 +41,7 @@ public class Board
         Question currentQuestion = null;
 
         while (eventType != XmlPullParser.END_DOCUMENT){
-            String name = null;
+            String name;
             switch (eventType){
                 case XmlPullParser.START_DOCUMENT:
                     break;

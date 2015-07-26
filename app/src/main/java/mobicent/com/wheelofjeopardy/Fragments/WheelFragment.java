@@ -1,11 +1,11 @@
-package mobicent.com.wheelofjeopardy.Fragments;
+package mobicent.com.wheelofjeopardy.fragments;
 
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.content.DialogInterface;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +33,8 @@ public class WheelFragment extends Fragment {
     Board board;
     int spinCounter;
     int scoreModifier;
-    Player player;
+    Player[] player;
+    int currentPlayer;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,7 +46,8 @@ public class WheelFragment extends Fragment {
 
         board = ((MainActivity) getActivity()).getBoard();
 
-        startGame();
+        // TODO: Replace this with a Start Game screen to determine quantity of players
+        startGame(4);
 
         ArrayList<FortuneItem> sectors = new ArrayList<>();
         // Reference samples for populating fields
@@ -80,12 +82,19 @@ public class WheelFragment extends Fragment {
         return v;
     }
 
-    private void startGame() {
+    private void startGame(int playerCount) {
         spinCounter = 50;
         scoreModifier = 1;
+        currentPlayer = 0;
 
         // Using single user to start with
-        player = new Player("One");
+//        player = new Player("One");
+
+        // Multiple players
+        player = new Player[playerCount];
+        for (int i = 0; i < playerCount; i++) {
+            player[i] = new Player(""+i);
+        }
 
         // How to initialize multiple players, establish a queue
     }
@@ -97,12 +106,18 @@ public class WheelFragment extends Fragment {
             spinCounter = 50;
             // TODO: Add all Player roundScore's to their score
         }
+        // Reset to Player 1 if all players have gone.
+        if (currentPlayer == player.length) {
+            currentPlayer = 0;
+        }
+        // TODO: When to currentPlayer++; If done now, it will offset the wheelAction index
 
-//        int spinResult = (int) (Math.random()*12);   // This does not depend on Fortune Wheel
+        // Spin Wheel for result
         final int spinResult = new Random().nextInt(fortuneView.getTotalItems());
         fortuneView.setSelectedItem(spinResult);
         txtResult.setText("Spin Result: " + spinResult);
 
+        // One second delay before handling action for result
         new CountDownTimer(1000, 1000) {
             public void onFinish() {
                 calculateWheelAction(spinResult);
@@ -161,15 +176,15 @@ public class WheelFragment extends Fragment {
             // The token could be used if the player loses his turn by spinning a “lose turn” or answering a question incorrectly in a future turn.
             // If this happens, the player could redeem the token and would get to spin the wheel again. The number of tokens is unlimited.
             case 8:
-                Toast.makeText(getActivity(), "Free turn for " + player.getName(), Toast.LENGTH_SHORT).show();
-                player.addToken();
+                Toast.makeText(getActivity(), "Free turn for Player " + player[currentPlayer].getName(), Toast.LENGTH_SHORT).show();
+                player[currentPlayer].addToken();
                 break;
 
             // One “bankrupt” sector. When this sector comes up, the player loses all of his or her points for the current round.
             // The player loses his turn, and can’t use a token for a second chance.
             case 9: // Bankrupt
-                Toast.makeText(getActivity(), "Bankrupt sector. Player " + player, Toast.LENGTH_SHORT).show();
-                player.resetRoundScore();
+                Toast.makeText(getActivity(), "Bankrupt sector. Player " + player[currentPlayer] + " loses his score for this round.", Toast.LENGTH_SHORT).show();
+                player[currentPlayer].resetRoundScore();
                 break;
 
             // One “player’s choice” sector. When this sector comes up, the player gets to choose which category to answer.

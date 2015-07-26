@@ -8,7 +8,7 @@ import java.util.Random;
 public class Question
 {
     String question, correctAnswer;
-    ArrayList<String> incorrectAnswers = new ArrayList<String>();
+    ArrayList<String> incorrectAnswers = new ArrayList<>();
     int pointValue;
 
     public String getQuestion()

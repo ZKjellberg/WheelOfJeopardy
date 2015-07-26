@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Category
 {
     public String name;
-    ArrayList<Question> questions = new ArrayList<Question>();
+    ArrayList<Question> questions = new ArrayList<>();
     int questionNumber = 0;
 
     public Category()
