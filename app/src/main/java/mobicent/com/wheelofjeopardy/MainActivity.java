@@ -102,11 +102,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // Check which request we're responding to
         if (requestCode == NUM_PLAYERS_REQUEST) {
-            // Make sure the request was successful
-            if (resultCode == RESULT_OK) {
-                Bundle extras = getIntent().getExtras();
-                numPlayers = extras.getInt("PLAYER_NUMBER");
-            }
+            Bundle extras = data.getExtras();
+            numPlayers = extras.getInt("PLAYER_NUMBER");
         }
     }
 }

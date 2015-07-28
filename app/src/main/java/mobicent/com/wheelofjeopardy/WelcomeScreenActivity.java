@@ -27,7 +27,8 @@ public class WelcomeScreenActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.putExtra("PLAYER_NUMBER" , Integer.parseInt(numPlayersEditText.getText().toString()));
+                int num = Integer.parseInt(numPlayersEditText.getText().toString());
+                intent.putExtra("PLAYER_NUMBER" , num);
                 setResult(2,intent);
                 finish();
             }
