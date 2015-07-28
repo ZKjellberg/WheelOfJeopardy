@@ -93,6 +93,11 @@ public class MainActivity extends AppCompatActivity {
         return board;
     }
 
+    public int getNumPlayers()
+    {
+        return numPlayers;
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // Check which request we're responding to

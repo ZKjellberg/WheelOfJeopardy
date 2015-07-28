@@ -47,7 +47,7 @@ public class WheelFragment extends Fragment {
         board = ((MainActivity) getActivity()).getBoard();
 
         // TODO: Replace this with a Start Game screen to determine quantity of players
-        startGame(4);
+        startGame(((MainActivity) getActivity()).getNumPlayers());
 
         ArrayList<FortuneItem> sectors = new ArrayList<>();
         // Reference samples for populating fields
