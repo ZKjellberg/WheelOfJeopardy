@@ -19,11 +19,6 @@ public class MainActivity extends AppCompatActivity {
     InputStream stream;
     int numPlayers;
 
-    public int spinCounter;
-    public int scoreModifier;
-    public Player[] player;
-    public int currentPlayer;
-
     static final int NUM_PLAYERS_REQUEST = 1;
 
     @Override
@@ -102,26 +97,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // Check which request we're responding to
         if (requestCode == NUM_PLAYERS_REQUEST) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
                 Bundle extras = getIntent().getExtras();
                 numPlayers = extras.getInt("PLAYER_NUMBER");
-                startGame(numPlayers);
+            }
         }
-    }
-
-    private void startGame(int playerCount) {
-        spinCounter = 50;
-        scoreModifier = 1;
-        currentPlayer = 0;
-
-        // Using single user to start with
-//        player = new Player("One");
-
-        // Multiple players
-        player = new Player[playerCount];
-        for (int i = 0; i < playerCount; i++) {
-            player[i] = new Player(""+i);
-        }
-
-        // How to initialize multiple players, establish a queue
     }
 }
