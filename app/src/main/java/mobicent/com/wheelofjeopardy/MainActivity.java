@@ -1,5 +1,6 @@
 package mobicent.com.wheelofjeopardy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -16,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
 
     static Board board;
     InputStream stream;
+    int numPlayers;
+
+    static final int NUM_PLAYERS_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         board = new Board(stream);
+
+        Intent welcomeScreen = new Intent(this, WelcomeScreenActivity.class);
+        startActivityForResult(welcomeScreen, NUM_PLAYERS_REQUEST);
     }
 
 
@@ -84,5 +91,17 @@ public class MainActivity extends AppCompatActivity {
     public Board getBoard()
     {
         return board;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Check which request we're responding to
+        if (requestCode == NUM_PLAYERS_REQUEST) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+                Bundle extras = getIntent().getExtras();
+                numPlayers = extras.getInt("PLAYER_NUMBER");
+            }
+        }
     }
 }

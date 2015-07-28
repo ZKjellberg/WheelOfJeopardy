@@ -45,4 +45,13 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Player:"
+        android:id="@+id/player_turn_textview"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true" />
+
 </RelativeLayout>
