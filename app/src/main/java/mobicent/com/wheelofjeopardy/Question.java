@@ -41,4 +41,9 @@ public class Question
     {
         return correctOption;
     }
+
+    public int getPointValue()
+    {
+        return pointValue;
+    }
 }

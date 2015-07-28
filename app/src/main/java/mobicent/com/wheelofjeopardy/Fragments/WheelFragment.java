@@ -46,7 +46,6 @@ public class WheelFragment extends Fragment {
 
         board = ((MainActivity) getActivity()).getBoard();
 
-        // TODO: Replace this with a Start Game screen to determine quantity of players
         startGame(((MainActivity) getActivity()).getNumPlayers());
 
         ArrayList<FortuneItem> sectors = new ArrayList<>();
@@ -233,9 +232,11 @@ public class WheelFragment extends Fragment {
                         // of the selected item
                         if (which == currentQuestion.getCorrectOption()) {
                             Toast.makeText(getActivity(), "Correct!", Toast.LENGTH_SHORT).show();
+                            player[currentPlayer].increaseRoundScore(currentQuestion.getPointValue());
                         }
                         else {
                             Toast.makeText(getActivity(), "Wrong!", Toast.LENGTH_SHORT).show();
+                            player[currentPlayer].decreaseRoundScore(currentQuestion.getPointValue());
                         }
                     }
                 });
