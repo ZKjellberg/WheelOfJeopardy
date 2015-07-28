@@ -211,15 +211,12 @@ public class WheelFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         // The 'which' argument contains the index position
                         // of the selected item
-
-                        // TODO: Determine if correct answer, if so, add to user's score.
-                        // TODO: Greg, how to I determine correct score? I see you do something like this in Dialog.getOptions()
-//                        if (which == currentQuestion.getCorrect()) {
-//                            // TODO: Greg, how do I get the value of currentQuestion?
-//                            player.increaseRoundScore(currentQuestion.getValue());
-//                        } else {
-//                            player.decreaseRoundScore(currentQuestion.getValue());
-//                        }
+                        if (which == currentQuestion.getCorrectOption()) {
+                            Toast.makeText(getActivity(), "Correct!", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(getActivity(), "Wrong!", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
         builder.create().show();

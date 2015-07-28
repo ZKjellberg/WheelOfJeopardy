@@ -10,6 +10,7 @@ public class Question
     String question, correctAnswer;
     ArrayList<String> incorrectAnswers = new ArrayList<>();
     int pointValue;
+    int correctOption;
 
     public String getQuestion()
     {
@@ -21,7 +22,7 @@ public class Question
     {
         CharSequence[] options = new CharSequence[4];
         Random g = new Random();
-        int correctOption = g.nextInt(4);
+        correctOption = g.nextInt(4);
         options[correctOption] = correctAnswer;
 
         int j = 0;
@@ -34,5 +35,10 @@ public class Question
             }
         }
         return options;
+    }
+
+    public int getCorrectOption()
+    {
+        return correctOption;
     }
 }
