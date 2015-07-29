@@ -1,4 +1,4 @@
-package mobicent.com.wheelofjeopardy.fragments;
+package mobicent.com.wheelofjeopardy.Fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

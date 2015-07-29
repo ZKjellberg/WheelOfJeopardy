@@ -1,4 +1,4 @@
-package mobicent.com.wheelofjeopardy.fragments;
+package mobicent.com.wheelofjeopardy.Fragments;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;

@@ -4,8 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import mobicent.com.wheelofjeopardy.fragments.BoardFragment;
-import mobicent.com.wheelofjeopardy.fragments.WheelFragment;
+import mobicent.com.wheelofjeopardy.Fragments.BoardFragment;
+import mobicent.com.wheelofjeopardy.Fragments.WheelFragment;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;

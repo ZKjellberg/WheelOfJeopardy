@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:padding="8dp"
     android:stretchColumns="1,2,3,4,5,6"
-    tools:context="mobicent.com.wheelofjeopardy.fragments.BoardFragment">
+    tools:context="mobicent.com.wheelofjeopardy.Fragments.BoardFragment">
 
     <TableRow
         android:layout_width="match_parent"
