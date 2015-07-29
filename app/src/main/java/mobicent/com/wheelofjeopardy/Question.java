@@ -17,7 +17,6 @@ public class Question
         return question;
     }
 
-    // TODO: Greg, how is this used?
     public CharSequence[] getOptions()
     {
         CharSequence[] options = new CharSequence[4];
