@@ -209,7 +209,10 @@ public class WheelFragment extends Fragment {
     public void createDialog(int catNumber) {
         final Category currentCategory = board.getCategory(catNumber);
         final Question currentQuestion = currentCategory.getNextQuestion();
-        // TODO: if currentCategory.getNextQuestion() returns null?
+        if (currentQuestion == null)
+        {
+            spinWheel();
+        }
         CharSequence[] items = currentQuestion.getOptions();
 
         // TODO: Add timer to dialog.
