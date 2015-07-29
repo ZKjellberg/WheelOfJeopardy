@@ -1,4 +1,4 @@
-package mobicent.com.wheelofjeopardy.Fragments;
+package mobicent.com.wheelofjeopardy.fragments;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -8,6 +8,7 @@ import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +29,7 @@ import mobicent.com.wheelofjeopardy.Question;
 
 public class WheelFragment extends Fragment {
     FortuneView fortuneView;
+    TextView txtPlayer;
     TextView txtResult;
     TextView txtScore;
     Board board;
@@ -43,6 +45,7 @@ public class WheelFragment extends Fragment {
         fortuneView = (FortuneView) v.findViewById(R.id.dialView);
         txtResult = (TextView) v.findViewById(mobicent.com.wheelofjeopardy.R.id.txtResult);
         txtScore = (TextView) v.findViewById(mobicent.com.wheelofjeopardy.R.id.txtScore);
+        txtPlayer = (TextView) v.findViewById(mobicent.com.wheelofjeopardy.R.id.player_turn_textview);
 
         board = ((MainActivity) getActivity()).getBoard();
 
@@ -85,6 +88,7 @@ public class WheelFragment extends Fragment {
         spinCounter = 50;
         scoreModifier = 1;
         currentPlayer = 0;
+        txtPlayer.setText("Player: 1");
 
         // Using single user to start with
 //        player = new Player("One");
@@ -169,6 +173,7 @@ public class WheelFragment extends Fragment {
             case 7:
                 Toast.makeText(getActivity(), "Lose turn sector.", Toast.LENGTH_SHORT).show();
                 // No action. Inform user and move onto next Player
+                nextPlayer();
                 break;
 
             // One “free turn” sector. When this sector comes up, the player gets a token for a free turn later in the game.
@@ -177,6 +182,7 @@ public class WheelFragment extends Fragment {
             case 8:
                 Toast.makeText(getActivity(), "Free turn for Player " + player[currentPlayer].getName(), Toast.LENGTH_SHORT).show();
                 player[currentPlayer].addToken();
+                spinWheel();
                 break;
 
             // One “bankrupt” sector. When this sector comes up, the player loses all of his or her points for the current round.
@@ -184,6 +190,7 @@ public class WheelFragment extends Fragment {
             case 9: // Bankrupt
                 Toast.makeText(getActivity(), "Bankrupt sector. Player " + player[currentPlayer] + " loses his score for this round.", Toast.LENGTH_SHORT).show();
                 player[currentPlayer].resetRoundScore();
+                nextPlayer();
                 break;
 
             // One “player’s choice” sector. When this sector comes up, the player gets to choose which category to answer.
@@ -241,11 +248,17 @@ public class WheelFragment extends Fragment {
                             Toast.makeText(getActivity(), "Wrong!", Toast.LENGTH_SHORT).show();
                             player[currentPlayer].decreaseRoundScore(currentQuestion.getPointValue());
                         }
-
+                        nextPlayer();
                         ((MainActivity) getActivity()).removeBoxFromBoard(currentCategory.getCategoryNumber(), currentQuestion.getPointValue());
                     }
                 });
         builder.create().show();
+    }
+
+    public void nextPlayer()
+    {
+        currentPlayer = (currentPlayer+1)%player.length;
+        txtPlayer.setText("Player: " + (currentPlayer+1));
     }
 
     public void chooseCategoryDialog() {

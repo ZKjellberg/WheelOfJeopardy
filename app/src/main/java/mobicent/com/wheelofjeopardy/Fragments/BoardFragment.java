@@ -1,4 +1,4 @@
-package mobicent.com.wheelofjeopardy.Fragments;
+package mobicent.com.wheelofjeopardy.fragments;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

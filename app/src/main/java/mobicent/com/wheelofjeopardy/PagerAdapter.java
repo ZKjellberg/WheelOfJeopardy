@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.SparseArray;
 import android.view.ViewGroup;
 
-import mobicent.com.wheelofjeopardy.Fragments.BoardFragment;
-import mobicent.com.wheelofjeopardy.Fragments.WheelFragment;
+import mobicent.com.wheelofjeopardy.fragments.BoardFragment;
+import mobicent.com.wheelofjeopardy.fragments.WheelFragment;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
 
