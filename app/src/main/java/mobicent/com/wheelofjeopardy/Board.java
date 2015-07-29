@@ -40,6 +40,8 @@ public class Board
         Category currentCategory = null;
         Question currentQuestion = null;
 
+        int i = 1;
+
         while (eventType != XmlPullParser.END_DOCUMENT){
             String name;
             switch (eventType){
@@ -48,7 +50,8 @@ public class Board
                 case XmlPullParser.START_TAG:
                     name = parser.getName();
                     if (name.equalsIgnoreCase("category")){
-                        currentCategory = new Category();
+                        currentCategory = new Category(i);
+                        i++;
                     }
                     else if (currentCategory != null)
                     {

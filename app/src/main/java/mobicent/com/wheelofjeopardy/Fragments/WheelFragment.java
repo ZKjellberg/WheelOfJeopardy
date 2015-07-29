@@ -207,7 +207,7 @@ public class WheelFragment extends Fragment {
     }
 
     public void createDialog(int catNumber) {
-        Category currentCategory = board.getCategory(catNumber);
+        final Category currentCategory = board.getCategory(catNumber);
         final Question currentQuestion = currentCategory.getNextQuestion();
         // TODO: if currentCategory.getNextQuestion() returns null?
         CharSequence[] items = currentQuestion.getOptions();
@@ -238,6 +238,8 @@ public class WheelFragment extends Fragment {
                             Toast.makeText(getActivity(), "Wrong!", Toast.LENGTH_SHORT).show();
                             player[currentPlayer].decreaseRoundScore(currentQuestion.getPointValue());
                         }
+
+                        ((MainActivity) getActivity()).removeBoxFromBoard(currentCategory.getCategoryNumber(), currentQuestion.getPointValue());
                     }
                 });
         builder.create().show();

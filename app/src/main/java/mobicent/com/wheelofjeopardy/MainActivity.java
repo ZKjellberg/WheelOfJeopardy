@@ -12,6 +12,8 @@ import android.view.MenuItem;
 import java.io.IOException;
 import java.io.InputStream;
 
+import mobicent.com.wheelofjeopardy.fragments.BoardFragment;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     int numPlayers;
 
     static final int NUM_PLAYERS_REQUEST = 1;
+
+    PagerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -96,6 +100,12 @@ public class MainActivity extends AppCompatActivity {
     public int getNumPlayers()
     {
         return numPlayers;
+    }
+
+    public void removeBoxFromBoard(int categoryNumber, int pointValue)
+    {
+        BoardFragment fragment = (BoardFragment) adapter.getRegisteredFragment(1);
+        fragment.removeBox(categoryNumber, pointValue);
     }
 
     @Override
