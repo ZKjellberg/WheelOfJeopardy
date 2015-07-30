@@ -12,8 +12,7 @@ import android.view.MenuItem;
 import java.io.IOException;
 import java.io.InputStream;
 
-import mobicent.com.wheelofjeopardy.fragments.BoardFragment;
-
+import mobicent.com.wheelofjeopardy.fragment.BoardFragment;
 
 public class MainActivity extends AppCompatActivity {
 

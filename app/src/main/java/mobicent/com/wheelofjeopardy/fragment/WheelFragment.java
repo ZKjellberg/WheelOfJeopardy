@@ -1,4 +1,4 @@
-package mobicent.com.wheelofjeopardy.fragments;
+package mobicent.com.wheelofjeopardy.fragment;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -8,7 +8,6 @@ import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -190,7 +189,7 @@ public class WheelFragment extends Fragment {
             // One “bankrupt” sector. When this sector comes up, the player loses all of his or her points for the current round.
             // The player loses his turn, and can’t use a token for a second chance.
             case 9: // Bankrupt
-                Toast.makeText(getActivity(), "Bankrupt sector. Player " + player[currentPlayer] + " loses his score for this round.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Bankrupt sector. Player " + player[currentPlayer].getName() + " loses his score for this round.", Toast.LENGTH_SHORT).show();
                 player[currentPlayer].resetRoundScore();
                 nextPlayer();
                 setTxtScore();
