@@ -89,6 +89,7 @@ public class WheelFragment extends Fragment {
         scoreModifier = 1;
         currentPlayer = 0;
         txtPlayer.setText("Player: 1");
+        txtScore.setText("Score: 0");
 
         // Using single user to start with
 //        player = new Player("One");
@@ -174,6 +175,7 @@ public class WheelFragment extends Fragment {
                 Toast.makeText(getActivity(), "Lose turn sector.", Toast.LENGTH_SHORT).show();
                 // No action. Inform user and move onto next Player
                 nextPlayer();
+                setTxtScore();
                 break;
 
             // One “free turn” sector. When this sector comes up, the player gets a token for a free turn later in the game.
@@ -191,6 +193,7 @@ public class WheelFragment extends Fragment {
                 Toast.makeText(getActivity(), "Bankrupt sector. Player " + player[currentPlayer] + " loses his score for this round.", Toast.LENGTH_SHORT).show();
                 player[currentPlayer].resetRoundScore();
                 nextPlayer();
+                setTxtScore();
                 break;
 
             // One “player’s choice” sector. When this sector comes up, the player gets to choose which category to answer.
@@ -247,8 +250,9 @@ public class WheelFragment extends Fragment {
                         else {
                             Toast.makeText(getActivity(), "Wrong!", Toast.LENGTH_SHORT).show();
                             player[currentPlayer].decreaseRoundScore(currentQuestion.getPointValue());
+                            nextPlayer();
                         }
-                        nextPlayer();
+                        setTxtScore();
                         ((MainActivity) getActivity()).removeBoxFromBoard(currentCategory.getCategoryNumber(), currentQuestion.getPointValue());
                     }
                 });
@@ -259,6 +263,11 @@ public class WheelFragment extends Fragment {
     {
         currentPlayer = (currentPlayer+1)%player.length;
         txtPlayer.setText("Player: " + (currentPlayer+1));
+    }
+
+    public void setTxtScore()
+    {
+        txtScore.setText("Score: " + player[currentPlayer].getRoundScore());
     }
 
     public void chooseCategoryDialog() {
