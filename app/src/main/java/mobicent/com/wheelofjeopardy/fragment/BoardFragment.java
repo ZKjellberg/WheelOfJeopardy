@@ -85,7 +85,7 @@ public class BoardFragment extends Fragment {
 
     public void removeBox(int categoryNumber, int pointValue)
     {
-        if(categoryNumber == 0)
+        if(categoryNumber == 1)
         {
             if(pointValue == 100)
                 cat1_100.setText("");
@@ -98,7 +98,7 @@ public class BoardFragment extends Fragment {
             else if(pointValue == 500)
                 cat1_500.setText("");
         }
-        else if (categoryNumber == 1)
+        else if (categoryNumber == 2)
         {
             if(pointValue == 100)
                 cat2_100.setText("");
@@ -111,7 +111,7 @@ public class BoardFragment extends Fragment {
             else if(pointValue == 500)
                 cat2_500.setText("");
         }
-        else if (categoryNumber == 2)
+        else if (categoryNumber == 3)
         {
             if(pointValue == 100)
                 cat3_100.setText("");
@@ -124,7 +124,7 @@ public class BoardFragment extends Fragment {
             else if(pointValue == 500)
                 cat3_500.setText("");
         }
-        else if (categoryNumber == 3)
+        else if (categoryNumber == 4)
         {
             if(pointValue == 100)
                 cat4_100.setText("");
@@ -137,7 +137,7 @@ public class BoardFragment extends Fragment {
             else if(pointValue == 500)
                 cat4_500.setText("");
         }
-        else if (categoryNumber == 4)
+        else if (categoryNumber == 5)
         {
             if(pointValue == 100)
                 cat5_100.setText("");
@@ -150,7 +150,7 @@ public class BoardFragment extends Fragment {
             else if(pointValue == 500)
                 cat5_500.setText("");
         }
-        else if (categoryNumber == 5)
+        else if (categoryNumber == 6)
         {
             if(pointValue == 100)
                 cat6_100.setText("");
