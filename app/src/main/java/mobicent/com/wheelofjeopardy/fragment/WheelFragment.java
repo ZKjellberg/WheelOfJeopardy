@@ -176,8 +176,13 @@ public class WheelFragment extends Fragment {
             case 7:
                 Toast.makeText(getActivity(), "Lose turn sector.", Toast.LENGTH_SHORT).show();
                 // No action. Inform user and move onto next Player
-                nextPlayer();
-                setTxtScore();
+                if(player[currentPlayer].getTokens() >= 1)
+                {
+                    freeToken();
+                }
+                else {
+                    nextPlayer();
+                }                setTxtScore();
                 break;
 
             // One “free turn” sector. When this sector comes up, the player gets a token for a free turn later in the game.
@@ -239,8 +244,13 @@ public class WheelFragment extends Fragment {
                         } else {
                             Toast.makeText(getActivity(), "Wrong!", Toast.LENGTH_SHORT).show();
                             player[currentPlayer].decreaseRoundScore(currentQuestion.getPointValue());
-                            nextPlayer();
-                        }
+                            if(player[currentPlayer].getTokens() >= 1)
+                            {
+                                freeToken();
+                            }
+                            else {
+                                nextPlayer();
+                            }                        }
                         setTxtScore();
                         ((MainActivity) getActivity()).removeBoxFromBoard(currentCategory.getCategoryNumber(), currentQuestion.getPointValue());
             }
@@ -254,8 +264,15 @@ public class WheelFragment extends Fragment {
                     dialog.dismiss();
                     Toast.makeText(getActivity(), "Too long!", Toast.LENGTH_SHORT).show();
                     player[currentPlayer].decreaseRoundScore(currentQuestion.getPointValue());
-                    nextPlayer();
+                    if(player[currentPlayer].getTokens() >= 1)
+                    {
+                        freeToken();
+                    }
+                    else {
+                        nextPlayer();
+                    }
                     setTxtScore();
+
                     ((MainActivity) getActivity()).removeBoxFromBoard(currentCategory.getCategoryNumber(), currentQuestion.getPointValue());
                 }
             }
@@ -268,7 +285,7 @@ public class WheelFragment extends Fragment {
     public void nextPlayer()
     {
         currentPlayer = (currentPlayer+1)%player.length;
-        txtPlayer.setText("Player: " + (currentPlayer+1));
+        txtPlayer.setText("Player: " + (currentPlayer + 1));
     }
 
     public void setTxtScore()
@@ -296,7 +313,7 @@ public class WheelFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         // The 'which' argument contains the index position
                         // of the selected item
-                        Toast.makeText(getActivity(), ""+items[which], Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "" + items[which], Toast.LENGTH_SHORT).show();
                         // TODO: which returns the index, how do we handle the scenario of
                         // TODO: createDialog only accepts int, not Strings
                         createDialog(which);
@@ -306,5 +323,26 @@ public class WheelFragment extends Fragment {
                 });
         builder.create().show();
     }
-    // TODO: Reuse this dialog for when opponent chooses?
+
+    public void freeToken()
+    {
+        AlertDialog.Builder builder =  new  AlertDialog.Builder(getActivity())
+                .setTitle("Would you like to use a free token?")
+                .setPositiveButton("Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                player[currentPlayer].removeToken();
+                            }
+                        }
+                )
+                .setNegativeButton("No",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                nextPlayer();
+                                dialog.dismiss();
+                            }
+                        }
+                );
+        builder.create().show();
+    }
 }

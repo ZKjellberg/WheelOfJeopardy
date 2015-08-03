@@ -13,7 +13,7 @@ public class Player {
         this.name = name;
         score = 0;
         roundScore = 0;
-        tokens = 0;
+        tokens = 1;
     }
 
     public String getName() {
@@ -35,6 +35,8 @@ public class Player {
     public void addToken() {
         tokens++;
     }
+
+    public void removeToken() { tokens--; }
 
     public int getRoundScore() {
         return roundScore;
