@@ -37,6 +37,8 @@ public class WheelFragment extends Fragment {
     Player[] player;
     int currentPlayer;
 
+    Toast toast = null;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(mobicent.com.wheelofjeopardy.R.layout.fragment_wheel, container, false);
@@ -132,6 +134,7 @@ public class WheelFragment extends Fragment {
     }
 
     private void calculateWheelAction(int spinResult) {
+        // TODO: If the user presses the button too fast, it will spin twice and the first one will get skipped...we should make sure this can't happen somehow
         switch (spinResult) {
             // One “spin again” sector. When this sector comes up, the player must spin again.
             case 0:
@@ -144,27 +147,27 @@ public class WheelFragment extends Fragment {
             // If incorrect, the corresponding points are subtracted from the player’s score, and the player loses his turn. (Negative scores are possible.)
             // If all of the questions in the selected category have been answered, the player must spin again.
             case 1: // Question Category 1
-                Toast.makeText(getActivity(), "Question Category 1", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Question Category 1", Toast.LENGTH_SHORT).show();
                 createDialog(0);
                 break;
             case 2: // Question Category 2
-                Toast.makeText(getActivity(), "Question Category 2", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Question Category 2", Toast.LENGTH_SHORT).show();
                 createDialog(1);
                 break;
             case 3: // Question Category 3
                 createDialog(2);
-                Toast.makeText(getActivity(), "Question Category 3", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Question Category 3", Toast.LENGTH_SHORT).show();
                 break;
             case 4:
-                Toast.makeText(getActivity(), "Question Category 4", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Question Category 4", Toast.LENGTH_SHORT).show();
                 createDialog(3);
                 break;
             case 5: // Question Category 5
-                Toast.makeText(getActivity(), "Question Category 5", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Question Category 5", Toast.LENGTH_SHORT).show();
                 createDialog(4);
                 break;
             case 6: // Question Category 6
-                Toast.makeText(getActivity(), "Question Category 6", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Question Category 6", Toast.LENGTH_SHORT).show();
                 createDialog(5);
                 break;
             // QUESTIONS END
@@ -224,18 +227,6 @@ public class WheelFragment extends Fragment {
         }
         CharSequence[] items = currentQuestion.getOptions();
 
-        // TODO: Add timer to dialog.
-        // TODO: Implement token for timeout retry
-//        new CountDownTimer(1000, 1000) {
-//            public void onFinish() {
-//                killDialog?
-//            }
-//            public void onTick(long millisUntilFinished) {
-//                updateDialogTimer
-//            }
-//        }.start();
-
-
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(currentQuestion.getQuestion())
                 .setItems(items, new DialogInterface.OnClickListener() {
@@ -245,17 +236,33 @@ public class WheelFragment extends Fragment {
                         if (which == currentQuestion.getCorrectOption()) {
                             Toast.makeText(getActivity(), "Correct!", Toast.LENGTH_SHORT).show();
                             player[currentPlayer].increaseRoundScore(currentQuestion.getPointValue());
-                        }
-                        else {
+                        } else {
                             Toast.makeText(getActivity(), "Wrong!", Toast.LENGTH_SHORT).show();
                             player[currentPlayer].decreaseRoundScore(currentQuestion.getPointValue());
                             nextPlayer();
                         }
                         setTxtScore();
                         ((MainActivity) getActivity()).removeBoxFromBoard(currentCategory.getCategoryNumber(), currentQuestion.getPointValue());
-                    }
+            }
                 });
-        builder.create().show();
+        builder.create();
+        final AlertDialog dialog = builder.show();
+
+        new CountDownTimer(5000, 1000) {
+            public void onFinish() {
+                if(dialog.isShowing()) {
+                    dialog.dismiss();
+                    Toast.makeText(getActivity(), "Too long!", Toast.LENGTH_SHORT).show();
+                    player[currentPlayer].decreaseRoundScore(currentQuestion.getPointValue());
+                    nextPlayer();
+                    setTxtScore();
+                    ((MainActivity) getActivity()).removeBoxFromBoard(currentCategory.getCategoryNumber(), currentQuestion.getPointValue());
+                }
+            }
+            public void onTick(long millisUntilFinished) {
+
+            }
+        }.start();
     }
 
     public void nextPlayer()
