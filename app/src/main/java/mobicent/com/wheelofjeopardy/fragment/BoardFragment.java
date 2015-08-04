@@ -164,4 +164,38 @@ public class BoardFragment extends Fragment {
                 cat6_500.setText("");
         }
     }
+
+    public void resetAndDouble()
+    {
+        cat1_100.setText("200");
+        cat1_200.setText("400");
+        cat1_300.setText("600");
+        cat1_400.setText("800");
+        cat1_500.setText("1000");
+        cat2_100.setText("200");
+        cat2_200.setText("400");
+        cat2_300.setText("600");
+        cat2_400.setText("800");
+        cat2_500.setText("1000");
+        cat3_100.setText("200");
+        cat3_200.setText("400");
+        cat3_300.setText("600");
+        cat3_400.setText("800");
+        cat3_500.setText("1000");
+        cat4_100.setText("200");
+        cat4_200.setText("400");
+        cat4_300.setText("600");
+        cat4_400.setText("800");
+        cat4_500.setText("1000");
+        cat5_100.setText("200");
+        cat5_200.setText("400");
+        cat5_300.setText("600");
+        cat5_400.setText("800");
+        cat5_500.setText("1000");
+        cat6_100.setText("200");
+        cat6_200.setText("400");
+        cat6_300.setText("600");
+        cat6_400.setText("800");
+        cat6_500.setText("1000");
+    }
 }

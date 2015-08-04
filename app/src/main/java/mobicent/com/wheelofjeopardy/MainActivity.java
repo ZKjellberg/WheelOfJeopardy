@@ -107,6 +107,12 @@ public class MainActivity extends AppCompatActivity {
         fragment.removeBox(categoryNumber, pointValue);
     }
 
+    public void resetForRoundTwo()
+    {
+        BoardFragment fragment = (BoardFragment) adapter.getRegisteredFragment(1);
+        fragment.resetAndDouble();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // Check which request we're responding to
