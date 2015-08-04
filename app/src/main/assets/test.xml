@@ -150,7 +150,7 @@
         </box>
         <box>
             <points>300</points>
-            <question>Who is the senate Senate Majority Leader?</question>
+            <question>Who is the Senate Majority Leader?</question>
             <correct>Mitch McConnel</correct>
             <incorrect>Harry Reid</incorrect>
             <incorrect>Nanci Pelosi</incorrect>
