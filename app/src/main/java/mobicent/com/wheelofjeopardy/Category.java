@@ -7,20 +7,28 @@ import java.util.ArrayList;
 public class Category
 {
     public String name;
-    ArrayList<Question> questions = new ArrayList<Question>();
+    ArrayList<Question> questions = new ArrayList<>();
     int questionNumber = 0;
+    int category;
 
-    public Category()
+    public Category(int cat)
     {
+        category = cat;
     }
 
     public Question getNextQuestion()
     {
         if(questionNumber < 6) {
+            Question nextQuestion = questions.get(questionNumber);
             questionNumber++;
-            return questions.get(questionNumber);
+            return nextQuestion;
         } else {
             return null;
         }
+    }
+
+    public int getCategoryNumber()
+    {
+        return category;
     }
 }

@@ -14,4 +14,8 @@
     <string name="hundred_three">300</string>
     <string name="hundred_four">400</string>
     <string name="hundred_five">500</string>
+    <string name="title_activity_welcome_screen">WelcomeScreenActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_eng_game">EngGameActivity</string>
 </resources>

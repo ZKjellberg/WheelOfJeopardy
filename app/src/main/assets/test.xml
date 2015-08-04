@@ -13,78 +13,78 @@
         </box>
         <box>
             <points>200</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>The symbol K stands for what element?</question>
+            <correct>Potassium</correct>
+            <incorrect>Hydrogen</incorrect>
+            <incorrect>Nickel</incorrect>
+            <incorrect>Cobalt</incorrect>
         </box>
         <box>
             <points>300</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>Which one of these is NOT one of Newton's laws of motion</question>
+            <correct>Inertia is a property of matter</correct>
+            <incorrect>The relationship between an object's mass m, its acceleration a, and the applied force F is F = ma</incorrect>
+            <incorrect>Every object in a state of uniform motion tends to remain in that state of motion unless an external force is applied to it. </incorrect>
+            <incorrect>For every action there is an equal and opposite reaction. </incorrect>
         </box>
         <box>
             <points>400</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>Which scientist is known for the "Spooky action at a distance" paradox</question>
+            <correct>Albert Einstein</correct>
+            <incorrect>Issac Newton</incorrect>
+            <incorrect>Stephen Hawking</incorrect>
+            <incorrect>Alexander Graham Bell</incorrect>
         </box>
         <box>
             <points>500</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>A ball is traveling at 5 m/s. Over the next 20 m, the ball will accelerate at 3 m/s^2. What is the balls new velocity at this time?</question>
+            <correct>~12 m/s</correct>
+            <incorrect>~16 m/s</incorrect>
+            <incorrect>~9 m/s</incorrect>
+            <incorrect>~20 m/s</incorrect>
         </box>
     </category>
     <category>
         <name>Music</name>
         <box>
             <points>100</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>In 4/4 time, how many quarter notes can fit in a measure.</question>
+            <correct>4</correct>
+            <incorrect>1</incorrect>
+            <incorrect>8</incorrect>
+            <incorrect>16</incorrect>
         </box>
         <box>
             <points>200</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>How many strings are on a normal guitar</question>
+            <correct>6</correct>
+            <incorrect>7</incorrect>
+            <incorrect>4</incorrect>
+            <incorrect>8</incorrect>
         </box>
         <box>
             <points>300</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>What notes are flat in a Bb scale?</question>
+            <correct>Bb and Eb</correct>
+            <incorrect>Bb</incorrect>
+            <incorrect>Bb, Eb, Ab</incorrect>
+            <incorrect>Bb, Eb, Ab, Gb</incorrect>
         </box>
         <box>
             <points>400</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>Which notes make up a triad in music</question>
+            <correct>1 - 3 - 5</correct>
+            <incorrect>1 - 2 - 3</incorrect>
+            <incorrect>1 - 4 - 7</incorrect>
+            <incorrect>3 - 4 - 5</incorrect>
         </box>
         <box>
             <points>500</points>
-            <question>What is the 3rd planet from the sun?</question>
-            <correct>Earth</correct>
-            <incorrect>Venus</incorrect>
-            <incorrect>Mars</incorrect>
-            <incorrect>Jupiter</incorrect>
+            <question>Spell out a B diminished 7th chord</question>
+            <correct>B - D - F - Ab</correct>
+            <incorrect>B - Db - F - Ab</incorrect>
+            <incorrect>B - F - G - Ab</incorrect>
+            <incorrect>B - D - F - A</incorrect>
         </box>
     </category>
     <category>

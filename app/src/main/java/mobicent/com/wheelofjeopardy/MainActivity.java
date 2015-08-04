@@ -1,46 +1,71 @@
 package mobicent.com.wheelofjeopardy;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import java.io.IOException;
 import java.io.InputStream;
 
-import mobicent.com.wheelofjeopardy.Fragments.BoardFragment;
-import mobicent.com.wheelofjeopardy.Fragments.WheelFragment;
-
+import mobicent.com.wheelofjeopardy.fragment.BoardFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     static Board board;
     InputStream stream;
+    int numPlayers;
+
+    static final int NUM_PLAYERS_REQUEST = 1;
+
+    PagerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_tabs);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        // Initialize Fragments
-        if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.containerWheel, new WheelFragment())
-                    .commit();
-            getFragmentManager().beginTransaction()
-                    .add(R.id.containerBoard, new BoardFragment())
-                    .commit();
-        }
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout.addTab(tabLayout.newTab().setText("Wheel"));
+        tabLayout.addTab(tabLayout.newTab().setText("Board"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
         try {
             stream = getAssets().open("test.xml");
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
         board = new Board(stream);
+
+        Intent welcomeScreen = new Intent(this, WelcomeScreenActivity.class);
+        startActivityForResult(welcomeScreen, NUM_PLAYERS_REQUEST);
     }
 
 
@@ -69,5 +94,31 @@ public class MainActivity extends AppCompatActivity {
     public Board getBoard()
     {
         return board;
+    }
+
+    public int getNumPlayers()
+    {
+        return numPlayers;
+    }
+
+    public void removeBoxFromBoard(int categoryNumber, int pointValue)
+    {
+        BoardFragment fragment = (BoardFragment) adapter.getRegisteredFragment(1);
+        fragment.removeBox(categoryNumber, pointValue);
+    }
+
+    public void resetForRoundTwo()
+    {
+        BoardFragment fragment = (BoardFragment) adapter.getRegisteredFragment(1);
+        fragment.resetAndDouble();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Check which request we're responding to
+        if (requestCode == NUM_PLAYERS_REQUEST) {
+            Bundle extras = data.getExtras();
+            numPlayers = extras.getInt("PLAYER_NUMBER");
+        }
     }
 }

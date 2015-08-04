@@ -1,11 +1,12 @@
-package mobicent.com.wheelofjeopardy.Fragments;
+package mobicent.com.wheelofjeopardy.fragment;
 
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,19 +22,25 @@ import java.util.Random;
 
 import mobicent.com.wheelofjeopardy.Board;
 import mobicent.com.wheelofjeopardy.Category;
+import mobicent.com.wheelofjeopardy.EndGameActivity;
 import mobicent.com.wheelofjeopardy.MainActivity;
 import mobicent.com.wheelofjeopardy.Player;
 import mobicent.com.wheelofjeopardy.Question;
+import mobicent.com.wheelofjeopardy.WelcomeScreenActivity;
 
 
 public class WheelFragment extends Fragment {
     FortuneView fortuneView;
+    TextView txtPlayer;
     TextView txtResult;
     TextView txtScore;
     Board board;
     int spinCounter;
     int scoreModifier;
-    Player player;
+    Player[] player;
+    int currentPlayer;
+
+    Toast toast = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -42,10 +49,11 @@ public class WheelFragment extends Fragment {
         fortuneView = (FortuneView) v.findViewById(R.id.dialView);
         txtResult = (TextView) v.findViewById(mobicent.com.wheelofjeopardy.R.id.txtResult);
         txtScore = (TextView) v.findViewById(mobicent.com.wheelofjeopardy.R.id.txtScore);
+        txtPlayer = (TextView) v.findViewById(mobicent.com.wheelofjeopardy.R.id.player_turn_textview);
 
         board = ((MainActivity) getActivity()).getBoard();
 
-        startGame();
+        startGame(((MainActivity) getActivity()).getNumPlayers());
 
         ArrayList<FortuneItem> sectors = new ArrayList<>();
         // Reference samples for populating fields
@@ -80,29 +88,56 @@ public class WheelFragment extends Fragment {
         return v;
     }
 
-    private void startGame() {
-        spinCounter = 50;
-        scoreModifier = 1;
+    private void startGame(int playerCount) {
+        spinCounter = 5;
+        scoreModifier = 2;
+        currentPlayer = 0;
+        txtPlayer.setText("Player: 1");
+        txtScore.setText("Score: 0");
 
         // Using single user to start with
-        player = new Player("One");
+//        player = new Player("One");
+
+        // Multiple players
+        player = new Player[playerCount];
+        for (int i = 0; i < playerCount; i++) {
+            player[i] = new Player(""+i);
+        }
 
         // How to initialize multiple players, establish a queue
     }
 
     private void spinWheel() {
-        if (--spinCounter == 0) {
-            // If 50 spins have occurred, Start Round 2
-            scoreModifier = 2;
-            spinCounter = 50;
-            // TODO: Add all Player roundScore's to their score
-        }
+        //TODO This logic is in the wrong place!
+        if (--spinCounter <= 0) {
 
-//        int spinResult = (int) (Math.random()*12);   // This does not depend on Fortune Wheel
+            //Game is over, show end screen
+            if (scoreModifier == 2)
+            {
+                Intent intent = new Intent(getActivity(), EndGameActivity.class);
+                intent.putExtra("NUM_PLAYERS", player.length);
+                for(int i = 0; i < player.length; i++)
+                    intent.putExtra("PLAYER " + i, player[i].getScore());
+                startActivity(intent);
+            }
+            else {
+                // If 50 spins have occurred in Round 1, Start Round 2
+                scoreModifier = 2;
+                spinCounter = 50;
+            }
+        }
+        // Reset to Player 1 if all players have gone.
+        if (currentPlayer == player.length) {
+            currentPlayer = 0;
+        }
+        // TODO: When to currentPlayer++; If done now, it will offset the wheelAction index
+
+        // Spin Wheel for result
         final int spinResult = new Random().nextInt(fortuneView.getTotalItems());
         fortuneView.setSelectedItem(spinResult);
         txtResult.setText("Spin Result: " + spinResult);
 
+        // One second delay before handling action for result
         new CountDownTimer(1000, 1000) {
             public void onFinish() {
                 calculateWheelAction(spinResult);
@@ -114,6 +149,7 @@ public class WheelFragment extends Fragment {
     }
 
     private void calculateWheelAction(int spinResult) {
+        // TODO: If the user presses the button too fast, it will spin twice and the first one will get skipped...we should make sure this can't happen somehow
         switch (spinResult) {
             // One “spin again” sector. When this sector comes up, the player must spin again.
             case 0:
@@ -126,27 +162,27 @@ public class WheelFragment extends Fragment {
             // If incorrect, the corresponding points are subtracted from the player’s score, and the player loses his turn. (Negative scores are possible.)
             // If all of the questions in the selected category have been answered, the player must spin again.
             case 1: // Question Category 1
-                Toast.makeText(getActivity(), "Question Category 1", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Question Category 1", Toast.LENGTH_SHORT).show();
                 createDialog(0);
                 break;
             case 2: // Question Category 2
-                Toast.makeText(getActivity(), "Question Category 2", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Question Category 2", Toast.LENGTH_SHORT).show();
                 createDialog(1);
                 break;
             case 3: // Question Category 3
                 createDialog(2);
-                Toast.makeText(getActivity(), "Question Category 3", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Question Category 3", Toast.LENGTH_SHORT).show();
                 break;
             case 4:
-                Toast.makeText(getActivity(), "Question Category 4", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Question Category 4", Toast.LENGTH_SHORT).show();
                 createDialog(3);
                 break;
             case 5: // Question Category 5
-                Toast.makeText(getActivity(), "Question Category 5", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Question Category 5", Toast.LENGTH_SHORT).show();
                 createDialog(4);
                 break;
             case 6: // Question Category 6
-                Toast.makeText(getActivity(), "Question Category 6", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Question Category 6", Toast.LENGTH_SHORT).show();
                 createDialog(5);
                 break;
             // QUESTIONS END
@@ -155,21 +191,31 @@ public class WheelFragment extends Fragment {
             case 7:
                 Toast.makeText(getActivity(), "Lose turn sector.", Toast.LENGTH_SHORT).show();
                 // No action. Inform user and move onto next Player
+                if(player[currentPlayer].getTokens() >= 1)
+                {
+                    freeToken();
+                }
+                else {
+                    nextPlayer();
+                }                setTxtScore();
                 break;
 
             // One “free turn” sector. When this sector comes up, the player gets a token for a free turn later in the game.
             // The token could be used if the player loses his turn by spinning a “lose turn” or answering a question incorrectly in a future turn.
             // If this happens, the player could redeem the token and would get to spin the wheel again. The number of tokens is unlimited.
             case 8:
-                Toast.makeText(getActivity(), "Free turn for " + player.getName(), Toast.LENGTH_SHORT).show();
-                player.addToken();
+                Toast.makeText(getActivity(), "Free turn for Player " + player[currentPlayer].getName(), Toast.LENGTH_SHORT).show();
+                player[currentPlayer].addToken();
+                spinWheel();
                 break;
 
             // One “bankrupt” sector. When this sector comes up, the player loses all of his or her points for the current round.
             // The player loses his turn, and can’t use a token for a second chance.
             case 9: // Bankrupt
-                Toast.makeText(getActivity(), "Bankrupt sector. Player " + player, Toast.LENGTH_SHORT).show();
-                player.resetRoundScore();
+                Toast.makeText(getActivity(), "Bankrupt sector. Player " + player[currentPlayer].getName() + " loses his score for this round.", Toast.LENGTH_SHORT).show();
+                player[currentPlayer].resetRoundScore();
+                nextPlayer();
+                setTxtScore();
                 break;
 
             // One “player’s choice” sector. When this sector comes up, the player gets to choose which category to answer.
@@ -193,22 +239,13 @@ public class WheelFragment extends Fragment {
     }
 
     public void createDialog(int catNumber) {
-        Category currentCategory = board.getCategory(catNumber);
+        final Category currentCategory = board.getCategory(catNumber);
         final Question currentQuestion = currentCategory.getNextQuestion();
-        // TODO: if currentCategory.getNextQuestion() returns null?
+        if (currentQuestion == null)
+        {
+            spinWheel();
+        }
         CharSequence[] items = currentQuestion.getOptions();
-
-        // TODO: Add timer to dialog.
-        // TODO: Implement token for timeout retry
-//        new CountDownTimer(1000, 1000) {
-//            public void onFinish() {
-//                killDialog?
-//            }
-//            public void onTick(long millisUntilFinished) {
-//                updateDialogTimer
-//            }
-//        }.start();
-
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(currentQuestion.getQuestion())
@@ -216,18 +253,59 @@ public class WheelFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         // The 'which' argument contains the index position
                         // of the selected item
-
-                        // TODO: Determine if correct answer, if so, add to user's score.
-                        // TODO: Greg, how to I determine correct score? I see you do something like this in Dialog.getOptions()
-//                        if (which == currentQuestion.getCorrect()) {
-//                            // TODO: Greg, how do I get the value of currentQuestion?
-//                            player.increaseRoundScore(currentQuestion.getValue());
-//                        } else {
-//                            player.decreaseRoundScore(currentQuestion.getValue());
-//                        }
-                    }
+                        if (which == currentQuestion.getCorrectOption()) {
+                            Toast.makeText(getActivity(), "Correct!", Toast.LENGTH_SHORT).show();
+                            player[currentPlayer].increaseRoundScore(currentQuestion.getPointValue());
+                        } else {
+                            Toast.makeText(getActivity(), "Wrong!", Toast.LENGTH_SHORT).show();
+                            player[currentPlayer].decreaseRoundScore(currentQuestion.getPointValue());
+                            if(player[currentPlayer].getTokens() >= 1)
+                            {
+                                freeToken();
+                            }
+                            else {
+                                nextPlayer();
+                            }                        }
+                        setTxtScore();
+                        ((MainActivity) getActivity()).removeBoxFromBoard(currentCategory.getCategoryNumber(), currentQuestion.getPointValue());
+            }
                 });
-        builder.create().show();
+        builder.create();
+        final AlertDialog dialog = builder.show();
+
+        new CountDownTimer(5000, 1000) {
+            public void onFinish() {
+                if(dialog.isShowing()) {
+                    dialog.dismiss();
+                    Toast.makeText(getActivity(), "Too long!", Toast.LENGTH_SHORT).show();
+                    player[currentPlayer].decreaseRoundScore(currentQuestion.getPointValue());
+                    if(player[currentPlayer].getTokens() >= 1)
+                    {
+                        freeToken();
+                    }
+                    else {
+                        nextPlayer();
+                    }
+                    setTxtScore();
+
+                    ((MainActivity) getActivity()).removeBoxFromBoard(currentCategory.getCategoryNumber(), currentQuestion.getPointValue());
+                }
+            }
+            public void onTick(long millisUntilFinished) {
+
+            }
+        }.start();
+    }
+
+    public void nextPlayer()
+    {
+        currentPlayer = (currentPlayer+1)%player.length;
+        txtPlayer.setText("Player: " + (currentPlayer + 1));
+    }
+
+    public void setTxtScore()
+    {
+        txtScore.setText("Score: " + player[currentPlayer].getScore());
     }
 
     public void chooseCategoryDialog() {
@@ -250,7 +328,7 @@ public class WheelFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         // The 'which' argument contains the index position
                         // of the selected item
-                        Toast.makeText(getActivity(), ""+items[which], Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "" + items[which], Toast.LENGTH_SHORT).show();
                         // TODO: which returns the index, how do we handle the scenario of
                         // TODO: createDialog only accepts int, not Strings
                         createDialog(which);
@@ -260,5 +338,26 @@ public class WheelFragment extends Fragment {
                 });
         builder.create().show();
     }
-    // TODO: Reuse this dialog for when opponent chooses?
+
+    public void freeToken()
+    {
+        AlertDialog.Builder builder =  new  AlertDialog.Builder(getActivity())
+                .setTitle("Would you like to use a free token?")
+                .setPositiveButton("Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                player[currentPlayer].removeToken();
+                            }
+                        }
+                )
+                .setNegativeButton("No",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                nextPlayer();
+                                dialog.dismiss();
+                            }
+                        }
+                );
+        builder.create().show();
+    }
 }

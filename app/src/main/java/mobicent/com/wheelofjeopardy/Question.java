@@ -8,20 +8,20 @@ import java.util.Random;
 public class Question
 {
     String question, correctAnswer;
-    ArrayList<String> incorrectAnswers = new ArrayList<String>();
+    ArrayList<String> incorrectAnswers = new ArrayList<>();
     int pointValue;
+    int correctOption;
 
     public String getQuestion()
     {
         return question;
     }
 
-    // TODO: Greg, how is this used?
     public CharSequence[] getOptions()
     {
         CharSequence[] options = new CharSequence[4];
         Random g = new Random();
-        int correctOption = g.nextInt(4);
+        correctOption = g.nextInt(4);
         options[correctOption] = correctAnswer;
 
         int j = 0;
@@ -34,5 +34,15 @@ public class Question
             }
         }
         return options;
+    }
+
+    public int getCorrectOption()
+    {
+        return correctOption;
+    }
+
+    public int getPointValue()
+    {
+        return pointValue;
     }
 }

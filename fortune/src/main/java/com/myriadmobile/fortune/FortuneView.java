@@ -205,6 +205,7 @@ public class FortuneView extends View implements RedrawListener{
      * @param index index of the fortune item
      */
     public void setSelectedItem(int index) {
+        // TODO: Perhaps we want to look at the behavior here
         if(index < 0 || index >= fortuneItems.size() || index == getSelectedIndex())
             return;
 
