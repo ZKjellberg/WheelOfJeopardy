@@ -2,6 +2,7 @@ package mobicent.com.wheelofjeopardy.fragment;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -21,9 +22,11 @@ import java.util.Random;
 
 import mobicent.com.wheelofjeopardy.Board;
 import mobicent.com.wheelofjeopardy.Category;
+import mobicent.com.wheelofjeopardy.EndGameActivity;
 import mobicent.com.wheelofjeopardy.MainActivity;
 import mobicent.com.wheelofjeopardy.Player;
 import mobicent.com.wheelofjeopardy.Question;
+import mobicent.com.wheelofjeopardy.WelcomeScreenActivity;
 
 
 public class WheelFragment extends Fragment {
@@ -105,11 +108,24 @@ public class WheelFragment extends Fragment {
     }
 
     private void spinWheel() {
-        if (--spinCounter == 0) {
-            // If 50 spins have occurred, Start Round 2
-            scoreModifier = 2;
-            spinCounter = 50;
-            // TODO: Add all Player roundScore's to their score
+        //TODO This logic is in the wrong place!
+        if (--spinCounter <= 0) {
+
+            //Game is over, show end screen
+            if (scoreModifier == 2)
+            {
+                Intent intent = new Intent(getActivity(), EndGameActivity.class);
+                intent.putExtra("NUM_PLAYERS", player.length);
+                for(int i = 0; i < player.length; i++)
+                    intent.putExtra("PLAYER " + i, player[i].getScore());
+                startActivity(intent);
+            }
+            else {
+                // If 50 spins have occurred in Round 1, Start Round 2
+                scoreModifier = 2;
+                spinCounter = 50;
+                // TODO: Add all Player roundScore's to their score
+            }
         }
         // Reset to Player 1 if all players have gone.
         if (currentPlayer == player.length) {
