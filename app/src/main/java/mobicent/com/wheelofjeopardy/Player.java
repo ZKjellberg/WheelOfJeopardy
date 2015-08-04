@@ -24,10 +24,6 @@ public class Player {
         return score;
     }
 
-    public void updateScore(int points) {
-        score += points;
-    }
-
     public int getTokens() {
         return tokens;
     }
@@ -44,13 +40,16 @@ public class Player {
 
     public void increaseRoundScore(int points) {
         roundScore += points;
+        score += points;
     }
 
     public void decreaseRoundScore(int points) {
         roundScore -= points;
+        score -= points;
     }
 
     public void resetRoundScore() {
+        score -= roundScore;
         roundScore = 0;
     }
 }

@@ -89,8 +89,8 @@ public class WheelFragment extends Fragment {
     }
 
     private void startGame(int playerCount) {
-        spinCounter = 50;
-        scoreModifier = 1;
+        spinCounter = 5;
+        scoreModifier = 2;
         currentPlayer = 0;
         txtPlayer.setText("Player: 1");
         txtScore.setText("Score: 0");
@@ -124,7 +124,6 @@ public class WheelFragment extends Fragment {
                 // If 50 spins have occurred in Round 1, Start Round 2
                 scoreModifier = 2;
                 spinCounter = 50;
-                // TODO: Add all Player roundScore's to their score
             }
         }
         // Reset to Player 1 if all players have gone.
@@ -306,7 +305,7 @@ public class WheelFragment extends Fragment {
 
     public void setTxtScore()
     {
-        txtScore.setText("Score: " + player[currentPlayer].getRoundScore());
+        txtScore.setText("Score: " + player[currentPlayer].getScore());
     }
 
     public void chooseCategoryDialog() {
