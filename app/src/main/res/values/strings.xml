@@ -18,4 +18,6 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_eng_game">EngGameActivity</string>
+    <string name="WoJLogo">wheelOfJeopardyLogo</string>
+    <string name="start_game_btn">Start Game</string>
 </resources>

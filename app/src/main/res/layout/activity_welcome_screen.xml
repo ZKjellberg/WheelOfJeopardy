@@ -29,9 +29,19 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start Game"
+        android:text="@string/start_game_btn"
         android:id="@+id/start_button"
         android:layout_below="@+id/num_players_edittext"
         android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/woj_logo"
+        android:contentDescription="@string/WoJLogo"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
