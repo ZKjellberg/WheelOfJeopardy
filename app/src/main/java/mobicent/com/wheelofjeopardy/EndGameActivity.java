@@ -33,7 +33,6 @@ public class EndGameActivity extends ActionBarActivity {
         scores.setLines(numPlayer);
         for(int i = 0; i < numPlayer; i++) {
             int score = intent.getIntExtra("PLAYER " + i, 0);
-            score = 55;
             if (score > max)
             {
                 tieFlag = false;
