@@ -49,6 +49,10 @@ public class Player {
     }
 
     public void resetRoundScore() {
+        roundScore = 0;
+    }
+
+    public void bankrupt() {
         score -= roundScore;
         roundScore = 0;
     }

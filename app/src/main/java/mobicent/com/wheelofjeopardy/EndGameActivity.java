@@ -7,20 +7,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 
 public class EndGameActivity extends ActionBarActivity {
 
-    TextView winner;
+    TextView winnerTextView;
     TextView scores;
     int max = 0;
     String scoreString = "";
+    boolean tieFlag = false;
+    ArrayList<String> winners = new ArrayList<String>();
+    String winner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_game);
 
-        winner = (TextView) findViewById(R.id.textView3);
+        winnerTextView = (TextView) findViewById(R.id.textView3);
         scores = (TextView) findViewById(R.id.textView4);
 
         Intent intent = getIntent();
@@ -28,10 +33,24 @@ public class EndGameActivity extends ActionBarActivity {
         scores.setLines(numPlayer);
         for(int i = 0; i < numPlayer; i++) {
             int score = intent.getIntExtra("PLAYER " + i, 0);
-            if (score >= max)
+            if (score > max)
             {
+                tieFlag = false;
                 max = score;
-                winner.setText("Player " + (i+1) + " Wins!!!");
+                winner = "Player " + (i+1);
+                winnerTextView.setText(winner + " Wins!!!");
+            }
+            else if (score == max)
+            {
+                tieFlag = true;
+                if(!winners.contains(winner))
+                    winners.add(winner);
+                winners.add("Player " + (i+1));
+                String winnersString = "";
+                for(int j = 0; j < winners.size(); j++)
+                    winnersString += (winners.get(j) + ", ");
+                winnerTextView.setText(winnersString + " tied!");
+
             }
             //TODO Case when 2 or more players tie
             if (score == max)

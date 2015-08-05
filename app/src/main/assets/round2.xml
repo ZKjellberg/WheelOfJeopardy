@@ -4,7 +4,7 @@
     <category>
         <name>COLORS THAT ARE RED</name>
         <box>
-            <points>200</points>
+            <points>100</points>
             <question>What color is a Red Fuji Apple?</question>
             <correct>Red</correct>
             <incorrect>Green</incorrect>
@@ -12,7 +12,7 @@
             <incorrect>Yellow</incorrect>
         </box>
         <box>
-            <points>400</points>
+            <points>200</points>
             <question>This traffic light color means stop.</question>
             <correct>Red</correct>
             <incorrect>Green</incorrect>
@@ -20,7 +20,7 @@
             <incorrect>Opaque</incorrect>
         </box>
         <box>
-            <points>600</points>
+            <points>300</points>
             <question>A red clown's nose is this color.</question>
             <correct>Red</correct>
             <incorrect>Blue</incorrect>
@@ -28,7 +28,7 @@
             <incorrect>Teal</incorrect>
         </box>
         <box>
-            <points>800</points>
+            <points>400</points>
             <question>Red barns are painted this color.</question>
             <correct>Red</correct>
             <incorrect>Aqua Maroon</incorrect>
@@ -36,7 +36,7 @@
             <incorrect>Yellow</incorrect>
         </box>
         <box>
-            <points>1000</points>
+            <points>500</points>
             <question>Mars, a.k.a. The Red Planet, is this color.</question>
             <correct>Red</correct>
             <incorrect>E.T. Phone Home</incorrect>
@@ -47,7 +47,7 @@
     <category>
         <name>1-LETTER WORDS</name>
         <box>
-            <points>200</points>
+            <points>100</points>
             <question>Which word is 1 letter long?</question>
             <correct>A</correct>
             <incorrect>The</incorrect>
@@ -55,7 +55,7 @@
             <incorrect>At</incorrect>
         </box>
         <box>
-            <points>400</points>
+            <points>200</points>
             <question>Complete the sentence: This animal is __ dog.</question>
             <correct>A</correct>
             <incorrect>Was</incorrect>
@@ -63,7 +63,7 @@
             <incorrect>Someones</incorrect>
         </box>
         <box>
-            <points>600</points>
+            <points>300</points>
             <question>Complete the sentence: There is __ snake in the garden.</question>
             <correct>A</correct>
             <incorrect>Many</incorrect>
@@ -71,7 +71,7 @@
             <incorrect>Someones</incorrect>
         </box>
         <box>
-            <points>800</points>
+            <points>400</points>
             <question>This 1-Letter word starts with the letter A.</question>
             <correct>A</correct>
             <incorrect>B</incorrect>
@@ -79,7 +79,7 @@
             <incorrect>D</incorrect>
         </box>
         <box>
-            <points>1000</points>
+            <points>500</points>
             <question>This 1-Letter word is the first letter of the alphabet.</question>
             <correct>A</correct>
             <incorrect>X</incorrect>
@@ -90,7 +90,7 @@
     <category>
         <name>WHO READS</name>
         <box>
-            <points>200</points>
+            <points>100</points>
             <question>The Adventures of Tom Sawyer is about this person's adventures.</question>
             <correct>Tom Sawyer</correct>
             <incorrect>Janet Reno</incorrect>
@@ -98,7 +98,7 @@
             <incorrect>Tara Reid</incorrect>
         </box>
         <box>
-            <points>400</points>
+            <points>200</points>
             <question>The Adventures of Tom Sawyer are about this person's adventures.</question>
             <correct>Tom Sawyer</correct>
             <incorrect>Matthew Perry</incorrect>
@@ -106,7 +106,7 @@
             <incorrect>Matt Damon</incorrect>
         </box>
         <box>
-            <points>600</points>
+            <points>300</points>
             <question>The Adventures of Tom Sawyer are about this person's adventures.</question>
             <correct>Tom Sawyer</correct>
             <incorrect>The Shawshank Redemption</incorrect>
@@ -114,7 +114,7 @@
             <incorrect>Hot Tub Time Machine</incorrect>
         </box>
         <box>
-            <points>800</points>
+            <points>400</points>
             <question>The Adventures of Tom Sawyer are about this person's adventures.</question>
             <correct>Tom Sawyer</correct>
             <incorrect>John Paul Jones</incorrect>
@@ -122,7 +122,7 @@
             <incorrect>King Henry IIIV</incorrect>
         </box>
         <box>
-            <points>1000</points>
+            <points>500</points>
             <question>The Adventures of Tom Sawyer are about this person's adventures.</question>
             <correct>Tom Sawyer</correct>
             <incorrect>Titanic</incorrect>
@@ -133,7 +133,7 @@
     <category>
         <name>LET IT SNOW</name>
         <box>
-            <points>200</points>
+            <points>100</points>
             <question>This is the color of snow.</question>
             <correct>White</correct>
             <incorrect>Yellow</incorrect>
@@ -141,7 +141,7 @@
             <incorrect>Orange</incorrect>
         </box>
         <box>
-            <points>400</points>
+            <points>200</points>
             <question>This substance falls from the sky during the winter.</question>
             <correct>Snow</correct>
             <incorrect>Kittens</incorrect>
@@ -149,7 +149,7 @@
             <incorrect>Kittens and Puppies</incorrect>
         </box>
         <box>
-            <points>600</points>
+            <points>300</points>
             <question>Snowmen are made fom this.</question>
             <correct>Snow</correct>
             <incorrect>Rocks</incorrect>
@@ -157,7 +157,7 @@
             <incorrect>Rain</incorrect>
         </box>
         <box>
-            <points>800</points>
+            <points>400</points>
             <question>Skiers rely on this white, cold material.</question>
             <correct>Snow</correct>
             <incorrect>Foxes</incorrect>
@@ -165,7 +165,7 @@
             <incorrect>What is Foxes</incorrect>
         </box>
         <box>
-            <points>1000</points>
+            <points>500</points>
             <question>Snow globes simulate falling ___</question>
             <correct>Snow</correct>
             <incorrect>Globes</incorrect>
@@ -176,7 +176,7 @@
     <category>
         <name>COLORS THAT END IN "URPLE"</name>
         <box>
-            <points>200</points>
+            <points>100</points>
             <question>Barney the Purple Dinosaur is this color.</question>
             <correct>Purple</correct>
             <incorrect>Orange</incorrect>
@@ -184,7 +184,7 @@
             <incorrect>Blue with Yellow mixed in</incorrect>
         </box>
         <box>
-            <points>400</points>
+            <points>200</points>
             <question>The Movie "The Color Purple" is not about this color.</question>
             <correct>Purple</correct>
             <incorrect>Yellow</incorrect>
@@ -192,7 +192,7 @@
             <incorrect>Orange</incorrect>
         </box>
         <box>
-            <points>600</points>
+            <points>300</points>
             <question>This color often represents grape flavors.</question>
             <correct>Purple</correct>
             <incorrect>Orange</incorrect>
@@ -200,7 +200,7 @@
             <incorrect>Brown</incorrect>
         </box>
         <box>
-            <points>800</points>
+            <points>400</points>
             <question>This color starts with a "P" and ends with an "urple."</question>
             <correct>Purple</correct>
             <incorrect>White</incorrect>
@@ -208,7 +208,7 @@
             <incorrect>White Chocolate</incorrect>
         </box>
         <box>
-            <points>1000</points>
+            <points>500</points>
             <question>Purple plums are this color.</question>
             <correct>Purple</correct>
             <incorrect>Anything but Purple</incorrect>
@@ -219,7 +219,7 @@
     <category>
         <name>WORDS THAT RHYME WITH DOG</name>
         <box>
-            <points>200</points>
+            <points>100</points>
             <question>This word rhymes wth dog.</question>
             <correct>Smog</correct>
             <incorrect>Laugh</incorrect>
@@ -227,7 +227,7 @@
             <incorrect>Love</incorrect>
         </box>
         <box>
-            <points>400</points>
+            <points>200</points>
             <question>Finish the sentence: My dog has a ___.</question>
             <correct>Blog</correct>
             <incorrect>House</incorrect>
@@ -235,7 +235,7 @@
             <incorrect>Rash</incorrect>
         </box>
         <box>
-            <points>600</points>
+            <points>300</points>
             <question>You make this from trees.</question>
             <correct>Log</correct>
             <incorrect>Boat</incorrect>
@@ -243,7 +243,7 @@
             <incorrect>House</incorrect>
         </box>
         <box>
-            <points>800</points>
+            <points>400</points>
             <question>Early in the morning, you can see this.</question>
             <correct>Fog</correct>
             <incorrect>Light</incorrect>
@@ -251,7 +251,7 @@
             <incorrect>Lots of Stuff</incorrect>
         </box>
         <box>
-            <points>1000</points>
+            <points>500</points>
             <question>A dog will bark at a Ground ___.</question>
             <correct>Hog</correct>
             <incorrect>Whole</incorrect>
