@@ -29,6 +29,7 @@ import mobicent.com.wheelofjeopardy.MainActivity;
 import mobicent.com.wheelofjeopardy.Player;
 import mobicent.com.wheelofjeopardy.Question;
 
+//TODO Change all vaues back to what they're supposed to be when we're done testing!
 
 public class WheelFragment extends Fragment {
     FortuneView fortuneView;
@@ -90,7 +91,7 @@ public class WheelFragment extends Fragment {
     }
 
     private void startGame(int playerCount) {
-        spinCounter = 5;
+        spinCounter = 1;
         scoreModifier = 1;
         currentPlayer = 0;
         txtPlayer.setText("Player: 1");
@@ -389,7 +390,7 @@ public class WheelFragment extends Fragment {
 
                 // If 50 spins have occurred in Round 1, Start Round 2
                 scoreModifier = 2;
-                spinCounter = 5;
+                spinCounter = 1;
             }
         }
     }
