@@ -38,10 +38,12 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/woj_logo"
-        android:contentDescription="@string/WoJLogo"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:src="@drawable/wojlogo"
+        android:visibility="visible"
+        android:contentDescription="@string/woj_logo"/>
 
 </RelativeLayout>
