@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import mobicent.com.wheelofjeopardy.Board;
 import mobicent.com.wheelofjeopardy.Category;
 import mobicent.com.wheelofjeopardy.MainActivity;
 import mobicent.com.wheelofjeopardy.R;
@@ -165,8 +166,17 @@ public class BoardFragment extends Fragment {
         }
     }
 
-    public void resetAndDouble()
+    public void resetAndDouble(Board board)
     {
+        ArrayList<Category> categories = board.getCategories();
+
+        cat1.setText(categories.get(0).name);
+        cat2.setText(categories.get(1).name);
+        cat3.setText(categories.get(2).name);
+        cat4.setText(categories.get(3).name);
+        cat5.setText(categories.get(4).name);
+        cat6.setText(categories.get(5).name);
+
         cat1_100.setText("200");
         cat1_200.setText("400");
         cat1_300.setText("600");

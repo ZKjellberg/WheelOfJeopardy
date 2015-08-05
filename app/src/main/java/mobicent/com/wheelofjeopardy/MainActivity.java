@@ -110,7 +110,14 @@ public class MainActivity extends AppCompatActivity {
     public void resetForRoundTwo()
     {
         BoardFragment fragment = (BoardFragment) adapter.getRegisteredFragment(1);
-        fragment.resetAndDouble();
+        try {
+            stream = getAssets().open("round2.xml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        board = new Board(stream);
+
+        fragment.resetAndDouble(board);
     }
 
     @Override

@@ -17,6 +17,8 @@ import com.myriadmobile.fortune.FortuneItem;
 import com.myriadmobile.fortune.FortuneView;
 import com.myriadmobile.fortune.R;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -26,7 +28,6 @@ import mobicent.com.wheelofjeopardy.EndGameActivity;
 import mobicent.com.wheelofjeopardy.MainActivity;
 import mobicent.com.wheelofjeopardy.Player;
 import mobicent.com.wheelofjeopardy.Question;
-import mobicent.com.wheelofjeopardy.WelcomeScreenActivity;
 
 
 public class WheelFragment extends Fragment {
@@ -90,7 +91,7 @@ public class WheelFragment extends Fragment {
 
     private void startGame(int playerCount) {
         spinCounter = 5;
-        scoreModifier = 2;
+        scoreModifier = 1;
         currentPlayer = 0;
         txtPlayer.setText("Player: 1");
         txtScore.setText("Score: 0");
@@ -108,24 +109,7 @@ public class WheelFragment extends Fragment {
     }
 
     private void spinWheel() {
-        //TODO This logic is in the wrong place!
-        if (--spinCounter <= 0) {
 
-            //Game is over, show end screen
-            if (scoreModifier == 2)
-            {
-                Intent intent = new Intent(getActivity(), EndGameActivity.class);
-                intent.putExtra("NUM_PLAYERS", player.length);
-                for(int i = 0; i < player.length; i++)
-                    intent.putExtra("PLAYER " + i, player[i].getScore());
-                startActivity(intent);
-            }
-            else {
-                // If 50 spins have occurred in Round 1, Start Round 2
-                scoreModifier = 2;
-                spinCounter = 50;
-            }
-        }
         // Reset to Player 1 if all players have gone.
         if (currentPlayer == player.length) {
             currentPlayer = 0;
@@ -154,6 +138,7 @@ public class WheelFragment extends Fragment {
             // One “spin again” sector. When this sector comes up, the player must spin again.
             case 0:
                 Toast.makeText(getActivity(), "Spin again sector. Spinning wheel again", Toast.LENGTH_SHORT).show();
+                checkEndGameOrRound();
                 spinWheel();
                 break;
 
@@ -197,7 +182,9 @@ public class WheelFragment extends Fragment {
                 }
                 else {
                     nextPlayer();
-                }                setTxtScore();
+                }
+                setTxtScore();
+                checkEndGameOrRound();
                 break;
 
             // One “free turn” sector. When this sector comes up, the player gets a token for a free turn later in the game.
@@ -206,6 +193,7 @@ public class WheelFragment extends Fragment {
             case 8:
                 Toast.makeText(getActivity(), "Free turn for Player " + player[currentPlayer].getName(), Toast.LENGTH_SHORT).show();
                 player[currentPlayer].addToken();
+                checkEndGameOrRound();
                 spinWheel();
                 break;
 
@@ -216,6 +204,7 @@ public class WheelFragment extends Fragment {
                 player[currentPlayer].resetRoundScore();
                 nextPlayer();
                 setTxtScore();
+                checkEndGameOrRound();
                 break;
 
             // One “player’s choice” sector. When this sector comes up, the player gets to choose which category to answer.
@@ -233,6 +222,7 @@ public class WheelFragment extends Fragment {
 
             default:
                 Toast.makeText(getActivity(), "Invalid spin detected. Spinning wheel again.", Toast.LENGTH_SHORT).show();
+                checkEndGameOrRound();
                 spinWheel();
                 break;
         }
@@ -268,6 +258,7 @@ public class WheelFragment extends Fragment {
                             }                        }
                         setTxtScore();
                         ((MainActivity) getActivity()).removeBoxFromBoard(currentCategory.getCategoryNumber(), currentQuestion.getPointValue());
+                        checkEndGameOrRound();
             }
                 });
         builder.create();
@@ -289,6 +280,7 @@ public class WheelFragment extends Fragment {
                     setTxtScore();
 
                     ((MainActivity) getActivity()).removeBoxFromBoard(currentCategory.getCategoryNumber(), currentQuestion.getPointValue());
+                    checkEndGameOrRound();
                 }
             }
             public void onTick(long millisUntilFinished) {
@@ -359,5 +351,43 @@ public class WheelFragment extends Fragment {
                         }
                 );
         builder.create().show();
+    }
+
+    private void checkEndGameOrRound()
+    {
+        if (--spinCounter <= 0) {
+
+            //Game is over, show end screen
+            if (scoreModifier == 2)
+            {
+                Intent intent = new Intent(getActivity(), EndGameActivity.class);
+                intent.putExtra("NUM_PLAYERS", player.length);
+                for(int i = 0; i < player.length; i++)
+                    intent.putExtra("PLAYER " + i, player[i].getScore());
+                startActivity(intent);
+            }
+            else {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Round2").setMessage("Round 2 is beginning!");
+
+                builder.create().show();
+
+                ((MainActivity) getActivity()).resetForRoundTwo();
+
+                InputStream stream = null;
+                try {
+                    stream = getActivity().getAssets().open("round2.xml");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                board = new Board(stream);
+
+
+                // If 50 spins have occurred in Round 1, Start Round 2
+                scoreModifier = 2;
+                spinCounter = 5;
+            }
+        }
     }
 }
