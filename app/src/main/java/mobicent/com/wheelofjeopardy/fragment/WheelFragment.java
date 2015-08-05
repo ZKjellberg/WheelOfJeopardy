@@ -201,7 +201,7 @@ public class WheelFragment extends Fragment {
             // The player loses his turn, and can’t use a token for a second chance.
             case 9: // Bankrupt
                 Toast.makeText(getActivity(), "Bankrupt sector. Player " + player[currentPlayer].getName() + " loses his score for this round.", Toast.LENGTH_SHORT).show();
-                player[currentPlayer].resetRoundScore();
+                player[currentPlayer].bankrupt();
                 nextPlayer();
                 setTxtScore();
                 checkEndGameOrRound();
@@ -383,6 +383,9 @@ public class WheelFragment extends Fragment {
                 }
                 board = new Board(stream);
 
+                for (int i = 0; i < player.length; i++) {
+                    player[i].resetRoundScore();
+                }
 
                 // If 50 spins have occurred in Round 1, Start Round 2
                 scoreModifier = 2;
