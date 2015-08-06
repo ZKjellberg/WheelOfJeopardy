@@ -91,7 +91,7 @@ public class WheelFragment extends Fragment {
     }
 
     private void startGame(int playerCount) {
-        spinCounter = 1;
+        spinCounter = 50;
         scoreModifier = 1;
         currentPlayer = 0;
         txtPlayer.setText("Player: 1");
@@ -115,7 +115,6 @@ public class WheelFragment extends Fragment {
         if (currentPlayer == player.length) {
             currentPlayer = 0;
         }
-        // TODO: When to currentPlayer++; If done now, it will offset the wheelAction index
 
         // Spin Wheel for result
         final int spinResult = new Random().nextInt(fortuneView.getTotalItems());
@@ -394,7 +393,7 @@ public class WheelFragment extends Fragment {
 
                 // If 50 spins have occurred in Round 1, Start Round 2
                 scoreModifier = 2;
-                spinCounter = 1;
+                spinCounter = 50;
             }
         }
     }
