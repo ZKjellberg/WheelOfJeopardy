@@ -37,7 +37,7 @@ public class FortuneItem {
 
     public FortuneItem(int color, int value) {
         this.color = color;
-        type = DialItemType.Section;
+        type = DialItemType.Image;
         this.value = value;
     }
 

@@ -14,8 +14,6 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/num_players_edittext"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
         android:text="2"
         android:gravity="center_horizontal"
         android:textStyle="bold"
@@ -23,7 +21,13 @@
         android:textIsSelectable="true"
         android:singleLine="true"
         android:padding="8dp"
-        android:background="#ffcccccc"/>
+        android:background="#ffcccccc"
+        android:layout_alignBaseline="@+id/imageButton2"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignTop="@+id/start_button"
+        android:layout_marginTop="-80dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,16 +35,19 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Select # of players:"
         android:id="@+id/textView"
-        android:layout_above="@+id/num_players_edittext"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="96dp"
+        android:layout_marginBottom="30dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/start_game_btn"
         android:id="@+id/start_button"
-        android:layout_below="@+id/num_players_edittext"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="69dp"/>
 
     <ImageView
         android:layout_width="fill_parent"
@@ -54,13 +61,6 @@
         android:visibility="visible"
         android:contentDescription="@string/woj_logo"/>
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
-        android:layout_alignBottom="@+id/start_button"
-        android:layout_centerHorizontal="true"/>
-
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,5 +73,53 @@
         android:cropToPadding="false"
         android:paddingBottom="0dp"
         android:adjustViewBounds="true"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton1"
+        android:src="@drawable/one_player_btn"
+        android:background="#00ffffff"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="80dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton2"
+        android:src="@drawable/two_player_btn"
+        android:background="#00ffffff"
+        android:layout_alignTop="@+id/imageButton1"
+        android:layout_toRightOf="@+id/imageButton1"
+        android:layout_toEndOf="@+id/imageButton1"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:src="@drawable/three_player_btn"
+        android:background="#00ffffff"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:layout_alignTop="@+id/imageButton2"
+        android:layout_toRightOf="@+id/imageButton2"
+        android:layout_toEndOf="@+id/imageButton2"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton3"
+        android:src="@drawable/four_player_btn"
+        android:background="#00ffffff"
+        android:layout_alignTop="@+id/imageButton"
+        android:layout_toRightOf="@+id/imageButton"
+        android:layout_toEndOf="@+id/imageButton"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"/>
 
 </RelativeLayout>
