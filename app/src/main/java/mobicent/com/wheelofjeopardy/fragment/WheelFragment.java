@@ -29,7 +29,7 @@ import mobicent.com.wheelofjeopardy.MainActivity;
 import mobicent.com.wheelofjeopardy.Player;
 import mobicent.com.wheelofjeopardy.Question;
 
-//TODO Change all vaues back to what they're supposed to be when we're done testing!
+//TODO Change all values back to what they're supposed to be when we're done testing!
 
 public class WheelFragment extends Fragment {
     FortuneView fortuneView;
@@ -64,7 +64,7 @@ public class WheelFragment extends Fragment {
         // Colored text doesn't work
 //        sectors.add(new FortuneItem(Color.BLACK, 1));
 
-        // TODO: Create new images for categories? How to handle this on screen.
+        // TODO: Create new images for categories?
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_rotate)));  // Spin Again
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_1)));                             // Question 1
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_2)));                             // Question 2
@@ -325,8 +325,7 @@ public class WheelFragment extends Fragment {
                         // The 'which' argument contains the index position
                         // of the selected item
                         Toast.makeText(getActivity(), "" + items[which], Toast.LENGTH_SHORT).show();
-                        // TODO: which returns the index, how do we handle the scenario of
-                        // TODO: createDialog only accepts int, not Strings
+                        // TODO: Scenario when a category is no longer available and might offset the index.
                         createDialog(which);
                         // Below would return name of Category (String)
 //                         createDialog(""+items[which]);

@@ -55,7 +55,7 @@ public class EndGameActivity extends ActionBarActivity {
             //TODO Case when 2 or more players tie
             if (score == max)
             {
-
+                // Set result as both players?
             }
             scoreString += ("Player " + (i+1) + " Score: " + score + "\n");
         }

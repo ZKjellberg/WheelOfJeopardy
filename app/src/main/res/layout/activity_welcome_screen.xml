@@ -4,7 +4,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="mobicent.com.wheelofjeopardy.WelcomeScreenActivity">
+    tools:context="mobicent.com.wheelofjeopardy.WelcomeScreenActivity"
+                android:background="#ff348eff"
+                android:padding="0dp">
 
     <EditText
         android:layout_width="wrap_content"
@@ -15,7 +17,13 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:text="2"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textIsSelectable="true"
+        android:singleLine="true"
+        android:padding="8dp"
+        android:background="#ffcccccc"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,9 +37,41 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start Game"
+        android:text="@string/start_game_btn"
         android:id="@+id/start_button"
         android:layout_below="@+id/num_players_edittext"
         android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:src="@drawable/wojlogo"
+        android:visibility="visible"
+        android:contentDescription="@string/woj_logo"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:layout_alignBottom="@+id/start_button"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/wheelbg"
+        android:layout_centerInParent="true"
+        android:baselineAlignBottom="true"
+        android:contentDescription="Wheel of Fortune Background"
+        android:cropToPadding="false"
+        android:paddingBottom="0dp"
+        android:adjustViewBounds="true"/>
 
 </RelativeLayout>
