@@ -84,7 +84,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="50dp"
-        android:layout_marginStart="80dp"/>
+        android:layout_marginStart="80dp"
+        android:clickable="true"/>
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -96,7 +97,8 @@
         android:layout_toRightOf="@+id/imageButton1"
         android:layout_toEndOf="@+id/imageButton1"
         android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp"/>
+        android:layout_marginStart="28dp"
+        android:clickable="true"/>
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -108,7 +110,8 @@
         android:layout_marginStart="39dp"
         android:layout_alignTop="@+id/imageButton2"
         android:layout_toRightOf="@+id/imageButton2"
-        android:layout_toEndOf="@+id/imageButton2"/>
+        android:layout_toEndOf="@+id/imageButton2"
+        android:clickable="true"/>
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -120,6 +123,7 @@
         android:layout_toRightOf="@+id/imageButton"
         android:layout_toEndOf="@+id/imageButton"
         android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp"/>
+        android:layout_marginStart="28dp"
+        android:clickable="true"/>
 
 </RelativeLayout>
