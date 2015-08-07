@@ -23,17 +23,52 @@ public class WelcomeScreenActivity extends AppCompatActivity {
 
         numPlayersEditText = (EditText) findViewById(R.id.num_players_edittext);
 
+        // Init the four player modes
+        findViewById(R.id.playersOne).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startGame(1);
+            }
+        });
+        findViewById(R.id.playersTwo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startGame(2);
+            }
+        });
+        findViewById(R.id.playersThree).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startGame(3);
+            }
+        });
+        findViewById(R.id.playersFour).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startGame(4);
+            }
+        });
+
+        // Old Method
         startButton = (Button) findViewById(R.id.start_button);
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
                 int num = Integer.parseInt(numPlayersEditText.getText().toString());
-                intent.putExtra("PLAYER_NUMBER" , num);
-                setResult(2,intent);
-                finish();
+                startGame(num);
+//                Intent intent = new Intent();
+//                intent.putExtra("PLAYER_NUMBER", num);
+//                setResult(2, intent);
+//                finish();
             }
         });
+    }
+
+    public void startGame(int playerCount) {
+        Intent intent = new Intent();
+        intent.putExtra("PLAYER_NUMBER", playerCount);
+        setResult(playerCount,intent);
+        finish();
     }
 
     @Override

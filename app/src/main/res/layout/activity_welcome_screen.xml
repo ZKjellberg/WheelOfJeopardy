@@ -1,129 +1,125 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="mobicent.com.wheelofjeopardy.WelcomeScreenActivity"
-                android:background="#ff348eff"
-                android:padding="0dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff348eff"
+    android:padding="0dp"
+    tools:context="mobicent.com.wheelofjeopardy.WelcomeScreenActivity">
 
     <EditText
+        android:id="@+id/num_players_edittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/num_players_edittext"
-        android:text="2"
-        android:gravity="center_horizontal"
-        android:textStyle="bold"
-        android:textSize="30dp"
-        android:textIsSelectable="true"
-        android:singleLine="true"
-        android:padding="8dp"
-        android:background="#ffcccccc"
         android:layout_alignBaseline="@+id/imageButton2"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentEnd="false"
         android:layout_alignParentStart="false"
         android:layout_alignTop="@+id/start_button"
-        android:layout_marginTop="-80dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-80dp"
+        android:background="#ffcccccc"
+        android:ems="10"
+        android:gravity="center_horizontal"
+        android:inputType="number"
+        android:padding="8dp"
+        android:singleLine="true"
+        android:text="2"
+        android:textIsSelectable="true"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:visibility="invisible" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Select # of players:"
-        android:id="@+id/textView"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
         android:layout_marginTop="96dp"
-        android:layout_marginBottom="30dp"/>
+        android:text="Select # of players:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
+        android:id="@+id/start_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/start_game_btn"
-        android:id="@+id/start_button"
         android:layout_above="@+id/imageView2"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="69dp"/>
+        android:layout_marginBottom="69dp"
+        android:text="@string/start_game_btn"
+        android:visibility="invisible" />
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="false"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
+        android:contentDescription="@string/woj_logo"
         android:src="@drawable/wojlogo"
-        android:visibility="visible"
-        android:contentDescription="@string/woj_logo"/>
+        android:visibility="visible" />
 
     <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/wheelbg"
         android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
         android:baselineAlignBottom="true"
         android:contentDescription="Wheel of Fortune Background"
         android:cropToPadding="false"
         android:paddingBottom="0dp"
-        android:adjustViewBounds="true"/>
+        android:src="@drawable/wheelbg" />
 
     <ImageButton
+        android:id="@+id/playersOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton1"
-        android:src="@drawable/one_player_btn"
-        android:background="#00ffffff"
-        android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView"
         android:layout_marginLeft="50dp"
         android:layout_marginStart="80dp"
-        android:clickable="true"/>
+        android:background="#00ffffff"
+        android:src="@drawable/num1" />
 
     <ImageButton
+        android:id="@+id/playersTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton2"
-        android:src="@drawable/two_player_btn"
-        android:background="#00ffffff"
-        android:layout_alignTop="@+id/imageButton1"
-        android:layout_toRightOf="@+id/imageButton1"
-        android:layout_toEndOf="@+id/imageButton1"
         android:layout_marginLeft="28dp"
         android:layout_marginStart="28dp"
-        android:clickable="true"/>
+        android:layout_alignTop="@+id/playersOne"
+        android:layout_toEndOf="@+id/playersOne"
+        android:layout_toRightOf="@+id/playersOne"
+        android:background="#00ffffff"
+        android:src="@drawable/num2" />
 
     <ImageButton
+        android:id="@+id/playersThree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
-        android:src="@drawable/three_player_btn"
-        android:background="#00ffffff"
         android:layout_marginLeft="39dp"
         android:layout_marginStart="39dp"
-        android:layout_alignTop="@+id/imageButton2"
-        android:layout_toRightOf="@+id/imageButton2"
-        android:layout_toEndOf="@+id/imageButton2"
-        android:clickable="true"/>
+        android:layout_alignTop="@+id/playersTwo"
+        android:layout_toEndOf="@+id/playersTwo"
+        android:layout_toRightOf="@+id/playersTwo"
+        android:background="#00ffffff"
+        android:src="@drawable/num3" />
 
     <ImageButton
+        android:id="@+id/playersFour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton3"
-        android:src="@drawable/four_player_btn"
-        android:background="#00ffffff"
-        android:layout_alignTop="@+id/imageButton"
-        android:layout_toRightOf="@+id/imageButton"
-        android:layout_toEndOf="@+id/imageButton"
         android:layout_marginLeft="28dp"
         android:layout_marginStart="28dp"
-        android:clickable="true"/>
+        android:layout_alignTop="@+id/playersThree"
+        android:layout_toEndOf="@+id/playersThree"
+        android:layout_toRightOf="@+id/playersThree"
+        android:background="#00ffffff"
+        android:src="@drawable/num4" />
 
 </RelativeLayout>

@@ -3,6 +3,7 @@ package mobicent.com.wheelofjeopardy;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -10,7 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 
-public class EndGameActivity extends ActionBarActivity {
+public class EndGameActivity extends AppCompatActivity {
 
     TextView winnerTextView;
     TextView scores;
@@ -56,6 +57,7 @@ public class EndGameActivity extends ActionBarActivity {
             if (score == max)
             {
                 // Set result as both players?
+//                scoreString += ("Player " + (i+1) + " Score: " + score + "\n");
             }
             scoreString += ("Player " + (i+1) + " Score: " + score + "\n");
         }
