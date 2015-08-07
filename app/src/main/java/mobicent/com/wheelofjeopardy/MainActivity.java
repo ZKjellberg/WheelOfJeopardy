@@ -2,6 +2,7 @@ package mobicent.com.wheelofjeopardy;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -126,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == NUM_PLAYERS_REQUEST) {
             Bundle extras = data.getExtras();
             numPlayers = extras.getInt("PLAYER_NUMBER");
+            Snackbar.make(findViewById(android.R.id.content), "Game will start with " + numPlayers + " players.", Snackbar.LENGTH_LONG).show();
         }
     }
 }

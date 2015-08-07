@@ -13,7 +13,6 @@ import android.widget.EditText;
 
 public class WelcomeScreenActivity extends AppCompatActivity {
 
-    Button startButton;
     EditText numPlayersEditText;
 
     @Override
@@ -49,23 +48,20 @@ public class WelcomeScreenActivity extends AppCompatActivity {
             }
         });
 
-        // Old Method
-        startButton = (Button) findViewById(R.id.start_button);
+        // TODO: Delete old method & invisible UI components once comfortable with the drawable buttons.
+        Button startButton = (Button) findViewById(R.id.start_button);
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int num = Integer.parseInt(numPlayersEditText.getText().toString());
                 startGame(num);
-//                Intent intent = new Intent();
-//                intent.putExtra("PLAYER_NUMBER", num);
-//                setResult(2, intent);
-//                finish();
             }
         });
     }
 
     public void startGame(int playerCount) {
         Intent intent = new Intent();
+        // TODO: Why do we have a setResult & a putExtra for same amount?
         intent.putExtra("PLAYER_NUMBER", playerCount);
         setResult(playerCount,intent);
         finish();

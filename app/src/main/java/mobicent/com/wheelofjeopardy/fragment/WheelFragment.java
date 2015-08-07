@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -110,7 +111,6 @@ public class WheelFragment extends Fragment {
     }
 
     private void spinWheel() {
-
         // Reset to Player 1 if all players have gone.
         if (currentPlayer == player.length) {
             currentPlayer = 0;
@@ -370,12 +370,11 @@ public class WheelFragment extends Fragment {
                 startActivity(intent);
             }
             else {
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("Round2").setMessage("Round 2 is beginning!");
-
-                builder.create().show();
-
+                Snackbar.make(getView(), "Round 2 is beginning!", Snackbar.LENGTH_LONG).show();
+                // TODO: Delete old AlertDialog when comfortable with Snackbar.
+//                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//                builder.setTitle("Round2").setMessage("Round 2 is beginning!");
+//                builder.create().show();
                 ((MainActivity) getActivity()).resetForRoundTwo();
 
                 InputStream stream = null;
