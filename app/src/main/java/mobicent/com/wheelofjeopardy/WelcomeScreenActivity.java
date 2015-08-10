@@ -88,4 +88,8 @@ public class WelcomeScreenActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    // Hijack Back Button to prevent user bypassing this screen.
+    @Override public void onBackPressed() {
+    }
 }

@@ -130,4 +130,9 @@ public class MainActivity extends AppCompatActivity {
             Snackbar.make(findViewById(android.R.id.content), "Game will start with " + numPlayers + " players.", Snackbar.LENGTH_LONG).show();
         }
     }
+
+    // Hijack Back button to prevent user from dismissing Dialogs
+    @Override
+    public void onBackPressed() {
+    }
 }

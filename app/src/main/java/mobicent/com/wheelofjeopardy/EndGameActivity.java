@@ -85,4 +85,10 @@ public class EndGameActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    // Hijack Back button to prevent user from returning to game.
+    @Override
+    public void onBackPressed() {
+
+    }
 }
