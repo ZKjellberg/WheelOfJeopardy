@@ -97,7 +97,7 @@ public class WheelFragment extends Fragment {
         currentPlayer = 0;
         txtPlayer.setText("Player: 1");
         txtScore.setText("Score: 0");
-        txtResult.setText("Spin Result: " + spinCounter);
+        txtResult.setText("Spins Remaining: " + spinCounter);
 
         // Using single user to start with
 //        player = new Player("One");
@@ -363,7 +363,7 @@ public class WheelFragment extends Fragment {
 
     private void checkEndGameOrRound()
     {
-        txtResult.setText("Spin Result: " + spinCounter);
+        txtResult.setText("Spins Remaining: " + spinCounter);
 
         if (--spinCounter <= 0) {
 
