@@ -97,6 +97,7 @@ public class WheelFragment extends Fragment {
         currentPlayer = 0;
         txtPlayer.setText("Player: 1");
         txtScore.setText("Score: 0");
+        txtResult.setText("Spin Result: " + spinCounter);
 
         // Using single user to start with
 //        player = new Player("One");
@@ -119,7 +120,6 @@ public class WheelFragment extends Fragment {
         // Spin Wheel for result
         final int spinResult = new Random().nextInt(fortuneView.getTotalItems());
         fortuneView.setSelectedItem(spinResult);
-        txtResult.setText("Spin Result: " + spinResult);
 
         // One second delay before handling action for result
         new CountDownTimer(1000, 1000) {
@@ -363,6 +363,8 @@ public class WheelFragment extends Fragment {
 
     private void checkEndGameOrRound()
     {
+        txtResult.setText("Spin Result: " + spinCounter);
+
         if (--spinCounter <= 0) {
 
             //Game is over, show end screen
@@ -397,6 +399,7 @@ public class WheelFragment extends Fragment {
                 // If 50 spins have occurred in Round 1, Start Round 2
                 scoreModifier = 2;
                 spinCounter = 50;
+                txtResult.setText("Spin Result: " + spinCounter);
             }
         }
     }
