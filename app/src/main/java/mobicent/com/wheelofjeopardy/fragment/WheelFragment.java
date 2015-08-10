@@ -66,17 +66,17 @@ public class WheelFragment extends Fragment {
 //        sectors.add(new FortuneItem(Color.BLACK, 1));
 
         // TODO: Create new images for categories?
-        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_rotate)));  // Spin Again
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_1)));                             // Question 1
+        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_rotate)));  // Spin Again
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_2)));                             // Question 2
-        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_3)));                             // Question 3
-        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_4)));                             // Question 4
-        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_5)));                             // Question 5
-        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_6)));                             // Question 6
-        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_close_clear_cancel)));  // Lose Turn
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_add)));                 // Free Turn
+        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_3)));                             // Question 3
+        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_close_clear_cancel)));  // Lose Turn
+        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_4)));                             // Question 4
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_revert)));              // Bankrupt
+        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_5)));                             // Question 5
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_help)));                // Choose Category
+        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_6)));                             // Question 6
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_info_details)));        // Opponent Choice
 
         fortuneView.addFortuneItems(sectors);
@@ -132,48 +132,48 @@ public class WheelFragment extends Fragment {
         }.start();
     }
 
+    // One sector for each of the six categories on the Jeopardy! board. When the player spins one of these sectors, he or she must answer the next question in that category.
+    // The questions are answered in the order of increasing point value. If the player answers correctly, he or she is awarded the corresponding points and gets to spin again.
+    // If incorrect, the corresponding points are subtracted from the player’s score, and the player loses his turn. (Negative scores are possible.)
+    // If all of the questions in the selected category have been answered, the player must spin again.
     private void calculateWheelAction(int spinResult) {
         // TODO: If the user presses the button too fast, it will spin twice and the first one will get skipped...we should make sure this can't happen somehow
         switch (spinResult) {
-            // One “spin again” sector. When this sector comes up, the player must spin again.
+
+            // Question Category 1
             case 0:
+                createDialog(0);
+                break;
+
+            // One “spin again” sector. When this sector comes up, the player must spin again.
+            case 1:
                 Toast.makeText(getActivity(), "Spin again sector. Spinning wheel again", Toast.LENGTH_SHORT).show();
                 checkEndGameOrRound();
                 spinWheel();
                 break;
 
-            // One sector for each of the six categories on the Jeopardy! board. When the player spins one of these sectors, he or she must answer the next question in that category.
-            // The questions are answered in the order of increasing point value. If the player answers correctly, he or she is awarded the corresponding points and gets to spin again.
-            // If incorrect, the corresponding points are subtracted from the player’s score, and the player loses his turn. (Negative scores are possible.)
-            // If all of the questions in the selected category have been answered, the player must spin again.
-            case 1: // Question Category 1
-                //Toast.makeText(getActivity(), "Question Category 1", Toast.LENGTH_SHORT).show();
-                createDialog(0);
-                break;
-            case 2: // Question Category 2
-                //Toast.makeText(getActivity(), "Question Category 2", Toast.LENGTH_SHORT).show();
+            // Question Category 2
+            case 2:
                 createDialog(1);
                 break;
-            case 3: // Question Category 3
-                createDialog(2);
-                //Toast.makeText(getActivity(), "Question Category 3", Toast.LENGTH_SHORT).show();
+
+            // One “free turn” sector. When this sector comes up, the player gets a token for a free turn later in the game.
+            // The token could be used if the player loses his turn by spinning a “lose turn” or answering a question incorrectly in a future turn.
+            // If this happens, the player could redeem the token and would get to spin the wheel again. The number of tokens is unlimited.
+            case 3:
+                Toast.makeText(getActivity(), "Free turn for Player " + player[currentPlayer].getName(), Toast.LENGTH_SHORT).show();
+                player[currentPlayer].addToken();
+                checkEndGameOrRound();
+                spinWheel();
                 break;
+
+            // Question Category 3
             case 4:
-                //Toast.makeText(getActivity(), "Question Category 4", Toast.LENGTH_SHORT).show();
-                createDialog(3);
+                createDialog(2);
                 break;
-            case 5: // Question Category 5
-                //Toast.makeText(getActivity(), "Question Category 5", Toast.LENGTH_SHORT).show();
-                createDialog(4);
-                break;
-            case 6: // Question Category 6
-                //Toast.makeText(getActivity(), "Question Category 6", Toast.LENGTH_SHORT).show();
-                createDialog(5);
-                break;
-            // QUESTIONS END
 
             // One “lose turn” sector.
-            case 7:
+            case 5:
                 Toast.makeText(getActivity(), "Lose turn sector.", Toast.LENGTH_SHORT).show();
                 // No action. Inform user and move onto next Player
                 if(player[currentPlayer].getTokens() >= 1)
@@ -187,19 +187,14 @@ public class WheelFragment extends Fragment {
                 checkEndGameOrRound();
                 break;
 
-            // One “free turn” sector. When this sector comes up, the player gets a token for a free turn later in the game.
-            // The token could be used if the player loses his turn by spinning a “lose turn” or answering a question incorrectly in a future turn.
-            // If this happens, the player could redeem the token and would get to spin the wheel again. The number of tokens is unlimited.
-            case 8:
-                Toast.makeText(getActivity(), "Free turn for Player " + player[currentPlayer].getName(), Toast.LENGTH_SHORT).show();
-                player[currentPlayer].addToken();
-                checkEndGameOrRound();
-                spinWheel();
+            // Question Category 4
+            case 6:
+                createDialog(3);
                 break;
 
             // One “bankrupt” sector. When this sector comes up, the player loses all of his or her points for the current round.
             // The player loses his turn, and can’t use a token for a second chance.
-            case 9: // Bankrupt
+            case 7:
                 Toast.makeText(getActivity(), "Bankrupt sector. Player " + player[currentPlayer].getName() + " loses his score for this round.", Toast.LENGTH_SHORT).show();
                 player[currentPlayer].bankrupt();
                 nextPlayer();
@@ -207,10 +202,20 @@ public class WheelFragment extends Fragment {
                 checkEndGameOrRound();
                 break;
 
+            // Question Category 5
+            case 8:
+                createDialog(4);
+                break;
+
             // One “player’s choice” sector. When this sector comes up, the player gets to choose which category to answer.
-            case 10:
+            case 9:
                 Toast.makeText(getActivity(), "Player's choice. Please choose your category.", Toast.LENGTH_SHORT).show();
                 chooseCategoryDialog();
+                break;
+
+            // Question Category 6
+            case 10:
+                createDialog(5);
                 break;
 
             // One “opponents’ choice” sector. When this sector comes up, the player’s opponents get to select the category.
