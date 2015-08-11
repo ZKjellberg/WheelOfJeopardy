@@ -30,8 +30,6 @@ import mobicent.com.wheelofjeopardy.MainActivity;
 import mobicent.com.wheelofjeopardy.Player;
 import mobicent.com.wheelofjeopardy.Question;
 
-//TODO Change all values back to what they're supposed to be when we're done testing!
-
 public class WheelFragment extends Fragment {
     FortuneView fortuneView;
     TextView txtPlayer;
@@ -42,8 +40,6 @@ public class WheelFragment extends Fragment {
     int scoreModifier;
     Player[] player;
     int currentPlayer;
-
-    Toast toast = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -99,16 +95,11 @@ public class WheelFragment extends Fragment {
         txtScore.setText("Score: 0");
         txtResult.setText("Spins Remaining: " + spinCounter);
 
-        // Using single user to start with
-//        player = new Player("One");
-
         // Multiple players
         player = new Player[playerCount];
         for (int i = 0; i < playerCount; i++) {
             player[i] = new Player(""+i);
         }
-
-        // How to initialize multiple players, establish a queue
     }
 
     private void spinWheel() {
@@ -243,6 +234,7 @@ public class WheelFragment extends Fragment {
         CharSequence[] items = currentQuestion.getOptions();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setCancelable(false);
         builder.setTitle(currentQuestion.getQuestion())
                 .setItems(items, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -258,17 +250,16 @@ public class WheelFragment extends Fragment {
                             if (scoreModifier == 2)
                                 player[currentPlayer].decreaseRoundScore(currentQuestion.getPointValue());
                             player[currentPlayer].decreaseRoundScore(currentQuestion.getPointValue());
-                            if(player[currentPlayer].getTokens() >= 1)
-                            {
+                            if (player[currentPlayer].getTokens() >= 1) {
                                 freeToken();
-                            }
-                            else {
+                            } else {
                                 nextPlayer();
-                            }                        }
+                            }
+                        }
                         setTxtScore();
                         ((MainActivity) getActivity()).removeBoxFromBoard(currentCategory.getCategoryNumber(), currentQuestion.getPointValue());
                         checkEndGameOrRound();
-            }
+                    }
                 });
         builder.create();
         final AlertDialog dialog = builder.show();
@@ -324,18 +315,19 @@ public class WheelFragment extends Fragment {
         // End of conversion
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Choose category")
-                .setItems(items, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // The 'which' argument contains the index position
-                        // of the selected item
-                        Toast.makeText(getActivity(), "" + items[which], Toast.LENGTH_SHORT).show();
-                        // TODO: Scenario when a category is no longer available and might offset the index.
-                        createDialog(which);
-                        // Below would return name of Category (String)
+        builder.setTitle("Choose category");
+        builder.setCancelable(false);
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // The 'which' argument contains the index position
+                // of the selected item
+                Toast.makeText(getActivity(), "" + items[which], Toast.LENGTH_SHORT).show();
+                // TODO: Scenario when a category is no longer available and might offset the index.
+                createDialog(which);
+                // Below would return name of Category (String)
 //                         createDialog(""+items[which]);
-                    }
-                });
+            }
+        });
         builder.create().show();
     }
 
@@ -378,10 +370,7 @@ public class WheelFragment extends Fragment {
             }
             else {
                 Snackbar.make(getView(), "Round 2 is beginning!", Snackbar.LENGTH_LONG).show();
-                // TODO: Delete old AlertDialog when comfortable with Snackbar.
-//                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//                builder.setTitle("Round2").setMessage("Round 2 is beginning!");
-//                builder.create().show();
+
                 ((MainActivity) getActivity()).resetForRoundTwo();
 
                 InputStream stream = null;
