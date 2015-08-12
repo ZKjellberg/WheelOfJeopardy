@@ -113,7 +113,7 @@ public class WheelFragment extends Fragment {
         fortuneView.setSelectedItem(spinResult);
 
         // One second delay before handling action for result
-        new CountDownTimer(1000, 1000) {
+        new CountDownTimer(2000, 1000) {
             public void onFinish() {
                 calculateWheelAction(spinResult);
             }
@@ -138,7 +138,7 @@ public class WheelFragment extends Fragment {
 
             // One “spin again” sector. When this sector comes up, the player must spin again.
             case 1:
-                Toast.makeText(getActivity(), "Spin again sector. Spinning wheel again", Toast.LENGTH_SHORT).show();
+                Snackbar.make(getView(), "Spin again sector. Spinning wheel again", Snackbar.LENGTH_LONG).show();
                 checkEndGameOrRound();
                 spinWheel();
                 break;
@@ -152,7 +152,7 @@ public class WheelFragment extends Fragment {
             // The token could be used if the player loses his turn by spinning a “lose turn” or answering a question incorrectly in a future turn.
             // If this happens, the player could redeem the token and would get to spin the wheel again. The number of tokens is unlimited.
             case 3:
-                Toast.makeText(getActivity(), "Free turn for Player " + player[currentPlayer].getName(), Toast.LENGTH_SHORT).show();
+                Snackbar.make(getView(), "Free turn for Player " + player[currentPlayer].getName(), Snackbar.LENGTH_LONG).show();
                 player[currentPlayer].addToken();
                 checkEndGameOrRound();
                 spinWheel();
@@ -165,7 +165,8 @@ public class WheelFragment extends Fragment {
 
             // One “lose turn” sector.
             case 5:
-                Toast.makeText(getActivity(), "Lose turn sector.", Toast.LENGTH_SHORT).show();
+                Snackbar.make(getView(), "Lose turn sector.", Snackbar.LENGTH_LONG).show();
+
                 // No action. Inform user and move onto next Player
                 if(player[currentPlayer].getTokens() >= 1)
                 {
@@ -186,7 +187,7 @@ public class WheelFragment extends Fragment {
             // One “bankrupt” sector. When this sector comes up, the player loses all of his or her points for the current round.
             // The player loses his turn, and can’t use a token for a second chance.
             case 7:
-                Toast.makeText(getActivity(), "Bankrupt sector. Player " + player[currentPlayer].getName() + " loses his score for this round.", Toast.LENGTH_SHORT).show();
+                Snackbar.make(getView(), "Bankrupt sector. Player " + player[currentPlayer].getName() + " loses his score for this round.", Snackbar.LENGTH_LONG).show();
                 player[currentPlayer].bankrupt();
                 nextPlayer();
                 setTxtScore();
@@ -200,8 +201,8 @@ public class WheelFragment extends Fragment {
 
             // One “player’s choice” sector. When this sector comes up, the player gets to choose which category to answer.
             case 9:
-                Toast.makeText(getActivity(), "Player's choice. Please choose your category.", Toast.LENGTH_SHORT).show();
-                chooseCategoryDialog();
+                Snackbar.make(getView(), "Player's choice. Please choose your category.", Snackbar.LENGTH_LONG).show();
+                chooseCategoryDialog("Choose category");
                 break;
 
             // Question Category 6
@@ -211,9 +212,9 @@ public class WheelFragment extends Fragment {
 
             // One “opponents’ choice” sector. When this sector comes up, the player’s opponents get to select the category.
             case 11:
-                Toast.makeText(getActivity(), "Opponent's choice. Please choose your opponent's category.", Toast.LENGTH_SHORT).show();
-                // TODO: Same as question 10, but ask user to hand phone to opponent to choose category.
-                chooseCategoryDialog();
+                Snackbar.make(getView(), "Opponent's choice. Please choose your opponent's category!", Snackbar.LENGTH_LONG).show();
+                // Same as question Player's Choice, but ask user to hand phone to opponent to choose category.
+                chooseCategoryDialog("Opponent chooses your category");
                 break;
 
             default:
@@ -264,7 +265,7 @@ public class WheelFragment extends Fragment {
         builder.create();
         final AlertDialog dialog = builder.show();
 
-        new CountDownTimer(5000, 1000) {
+        new CountDownTimer(9000, 1000) {
             public void onFinish() {
                 if(dialog.isShowing()) {
                     dialog.dismiss();
@@ -300,7 +301,7 @@ public class WheelFragment extends Fragment {
         txtScore.setText("Score: " + player[currentPlayer].getScore());
     }
 
-    public void chooseCategoryDialog() {
+    public void chooseCategoryDialog(String title) {
         ArrayList<Category> categories = board.getCategories();
 
         // There is probably an easier way to convert Categories into a CharSequence
@@ -314,8 +315,14 @@ public class WheelFragment extends Fragment {
         }
         // End of conversion
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Choose category");
+        AlertDialog.Builder builder;
+        if (title.equals("Choose category")) {
+            builder = new AlertDialog.Builder(getActivity(), mobicent.com.wheelofjeopardy.R.style.UserChoice);
+        } else {
+            builder = new AlertDialog.Builder(getActivity(), mobicent.com.wheelofjeopardy.R.style.OpponentChoice);
+        }
+
+        builder.setTitle(title);
         builder.setCancelable(false);
         builder.setItems(items, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {

@@ -9,4 +9,12 @@
         <!--   theme UI controls like checkboxes and text fields -->
         <item name="colorAccent">#FF4081</item>
     </style>
+
+    <style name="UserChoice" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">#5fa3d0</item>
+    </style>
+
+    <style name="OpponentChoice" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">#F44336</item>
+    </style>
 </resources>
