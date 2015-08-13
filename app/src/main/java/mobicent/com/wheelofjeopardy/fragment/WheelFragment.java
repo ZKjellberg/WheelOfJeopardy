@@ -98,7 +98,7 @@ public class WheelFragment extends Fragment {
         // Multiple players
         player = new Player[playerCount];
         for (int i = 0; i < playerCount; i++) {
-            player[i] = new Player(""+i);
+            player[i] = new Player(""+ (i+1));
         }
     }
 
@@ -242,12 +242,13 @@ public class WheelFragment extends Fragment {
                         // The 'which' argument contains the index position
                         // of the selected item
                         if (which == currentQuestion.getCorrectOption()) {
-                            Toast.makeText(getActivity(), "Correct!", Toast.LENGTH_SHORT).show();
+                            Snackbar.make(getView(), "Correct! Player " + player[currentPlayer].getName() + " gained " + currentQuestion.getPointValue() + " points.", Snackbar.LENGTH_LONG).show();
                             if (scoreModifier == 2)
                                 player[currentPlayer].increaseRoundScore(currentQuestion.getPointValue());
                             player[currentPlayer].increaseRoundScore(currentQuestion.getPointValue());
                         } else {
-                            Toast.makeText(getActivity(), "Wrong!", Toast.LENGTH_SHORT).show();
+                            Snackbar.make(getView(), "Wrong! Player " + player[currentPlayer].getName() + " lost " + currentQuestion.getPointValue() + " points.", Snackbar.LENGTH_LONG).show();
+
                             if (scoreModifier == 2)
                                 player[currentPlayer].decreaseRoundScore(currentQuestion.getPointValue());
                             player[currentPlayer].decreaseRoundScore(currentQuestion.getPointValue());
@@ -269,7 +270,6 @@ public class WheelFragment extends Fragment {
             public void onFinish() {
                 if(dialog.isShowing()) {
                     dialog.dismiss();
-                    Toast.makeText(getActivity(), "Too long!", Toast.LENGTH_SHORT).show();
                     player[currentPlayer].decreaseRoundScore(currentQuestion.getPointValue());
                     if(player[currentPlayer].getTokens() >= 1)
                     {
@@ -326,13 +326,9 @@ public class WheelFragment extends Fragment {
         builder.setCancelable(false);
         builder.setItems(items, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                // The 'which' argument contains the index position
-                // of the selected item
-                Toast.makeText(getActivity(), "" + items[which], Toast.LENGTH_SHORT).show();
-                // TODO: Scenario when a category is no longer available and might offset the index.
+                // The 'which' argument contains the index position of the selected item
+                Snackbar.make(getView(), "The Player chose the " + items[which] + " category.", Snackbar.LENGTH_LONG).show();
                 createDialog(which);
-                // Below would return name of Category (String)
-//                         createDialog(""+items[which]);
             }
         });
         builder.create().show();
@@ -341,7 +337,7 @@ public class WheelFragment extends Fragment {
     public void freeToken()
     {
         AlertDialog.Builder builder =  new  AlertDialog.Builder(getActivity())
-                .setTitle("Would you like to use a free token?")
+                .setTitle("Player " + player[currentPlayer].getName() + " has a token available, would they like to use it to continue their turn?")
                 .setPositiveButton("Yes",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
