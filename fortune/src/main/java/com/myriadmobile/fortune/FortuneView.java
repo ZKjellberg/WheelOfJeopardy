@@ -34,7 +34,7 @@ public class FortuneView extends View implements RedrawListener{
     // Settings
     private double spinSensitivity = 1; // Multipler for spin speed. ie .5, half the speed of finger
     private int frameRate = 40; // Frames per second
-    private double friction = 5; // Slows down friction radians per second
+    private double friction = 2; // Slows down friction radians per second
     private double velocityClamp = 15;  // clamps max fling to radians per second
     private boolean flingable = true; // Decides if the user can fling
     private boolean grooves = true; // Locks at correct angles
@@ -60,7 +60,7 @@ public class FortuneView extends View implements RedrawListener{
         try {
             spinSensitivity = a.getFloat(R.styleable.FortuneView_spinSensitivity, 1);
             frameRate = a.getInteger(R.styleable.FortuneView_frameRate, 40);
-            friction = a.getFloat(R.styleable.FortuneView_friction, 5);
+            friction = a.getFloat(R.styleable.FortuneView_friction, 2);
             velocityClamp = a.getFloat(R.styleable.FortuneView_velocityClamp, 15);
             flingable = a.getBoolean(R.styleable.FortuneView_flingable, true);
             grooves = a.getBoolean(R.styleable.FortuneView_grooves, true);

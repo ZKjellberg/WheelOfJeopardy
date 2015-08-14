@@ -84,7 +84,9 @@
         android:layout_marginLeft="50dp"
         android:layout_marginStart="80dp"
         android:background="#00ffffff"
-        android:src="@drawable/num1" />
+        android:src="@drawable/num1"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="false"/>
 
     <ImageButton
         android:id="@+id/playersTwo"

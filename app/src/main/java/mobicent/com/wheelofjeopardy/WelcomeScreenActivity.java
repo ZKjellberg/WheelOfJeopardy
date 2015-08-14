@@ -49,19 +49,18 @@ public class WelcomeScreenActivity extends AppCompatActivity {
         });
 
         // TODO: Delete old method & invisible UI components once comfortable with the drawable buttons.
-        Button startButton = (Button) findViewById(R.id.start_button);
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int num = Integer.parseInt(numPlayersEditText.getText().toString());
-                startGame(num);
-            }
-        });
+//        Button startButton = (Button) findViewById(R.id.start_button);
+//        startButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                int num = Integer.parseInt(numPlayersEditText.getText().toString());
+//                startGame(num);
+//            }
+//        });
     }
 
     public void startGame(int playerCount) {
         Intent intent = new Intent();
-        // TODO: Why do we have a setResult & a putExtra for same amount?
         intent.putExtra("PLAYER_NUMBER", playerCount);
         setResult(playerCount,intent);
         finish();
@@ -87,5 +86,9 @@ public class WelcomeScreenActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // Hijack Back Button to prevent user bypassing this screen.
+    @Override public void onBackPressed() {
     }
 }

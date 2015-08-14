@@ -92,7 +92,6 @@ public class Board
 
     public ArrayList<Category> getCategories()
     {
-        // TODO: How to determine which categories do not have available questions.
         return categories;
     }
 
