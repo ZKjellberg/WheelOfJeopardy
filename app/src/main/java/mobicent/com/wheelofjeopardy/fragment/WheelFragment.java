@@ -76,17 +76,17 @@ public class WheelFragment extends Fragment {
         //sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_0), FortuneItem.HingeType.Fixed));
         //sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_0), FortuneItem.HingeType.Fixed));
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), mobicent.com.wheelofjeopardy.R.drawable.cat_1), FortuneItem.HingeType.Fixed));
-        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_rotate), FortuneItem.HingeType.Fixed));
+        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), mobicent.com.wheelofjeopardy.R.drawable.spin_again), FortuneItem.HingeType.Fixed));
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), mobicent.com.wheelofjeopardy.R.drawable.cat_2), FortuneItem.HingeType.Fixed));
-        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_add), FortuneItem.HingeType.Fixed));
+        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), mobicent.com.wheelofjeopardy.R.drawable.free_turn), FortuneItem.HingeType.Fixed));
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), mobicent.com.wheelofjeopardy.R.drawable.cat_3), FortuneItem.HingeType.Fixed));
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), mobicent.com.wheelofjeopardy.R.drawable.lose_turn), FortuneItem.HingeType.Fixed));
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), mobicent.com.wheelofjeopardy.R.drawable.cat_4), FortuneItem.HingeType.Fixed));
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), mobicent.com.wheelofjeopardy.R.drawable.bankrupt), FortuneItem.HingeType.Fixed));
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), mobicent.com.wheelofjeopardy.R.drawable.cat_5), FortuneItem.HingeType.Fixed));
-        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(),  android.R.drawable.ic_menu_help), FortuneItem.HingeType.Fixed));
+        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), mobicent.com.wheelofjeopardy.R.drawable.player_choice), FortuneItem.HingeType.Fixed));
         sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), mobicent.com.wheelofjeopardy.R.drawable.cat_6), FortuneItem.HingeType.Fixed));
-        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_info_details), FortuneItem.HingeType.Fixed));
+        sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), mobicent.com.wheelofjeopardy.R.drawable.opp_choice), FortuneItem.HingeType.Fixed));
         //sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_rotate)));  // Spin Again
         //sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), R.drawable.image_2)));                             // Question 2
         //sectors.add(new FortuneItem(BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_menu_add)));                 // Free Turn
