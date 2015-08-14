@@ -18,7 +18,7 @@ public class Category
 
     public Question getNextQuestion()
     {
-        if(questionNumber < 6) {
+        if(questionNumber < 5) {
             Question nextQuestion = questions.get(questionNumber);
             questionNumber++;
             return nextQuestion;

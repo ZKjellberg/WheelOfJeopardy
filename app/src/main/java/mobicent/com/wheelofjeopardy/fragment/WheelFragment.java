@@ -30,8 +30,6 @@ import mobicent.com.wheelofjeopardy.MainActivity;
 import mobicent.com.wheelofjeopardy.Player;
 import mobicent.com.wheelofjeopardy.Question;
 
-//TODO Change all values back to what they're supposed to be when we're done testing!
-
 public class WheelFragment extends Fragment {
     FortuneView fortuneView;
     TextView txtPlayer;
