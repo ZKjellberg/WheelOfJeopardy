@@ -40,6 +40,7 @@ public class WheelFragment extends Fragment {
     int scoreModifier;
     Player[] player;
     int currentPlayer;
+    int roundSpins = 10;    // This should be 50 in the release
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -82,7 +83,7 @@ public class WheelFragment extends Fragment {
     }
 
     private void startGame(int playerCount) {
-        spinCounter = 50;
+        spinCounter = roundSpins;
         scoreModifier = 1;
         currentPlayer = 0;
         txtPlayer.setText("Player: 1");
@@ -146,7 +147,7 @@ public class WheelFragment extends Fragment {
             // The token could be used if the player loses his turn by spinning a “lose turn” or answering a question incorrectly in a future turn.
             // If this happens, the player could redeem the token and would get to spin the wheel again. The number of tokens is unlimited.
             case 3:
-                Snackbar.make(getView(), "Free turn for Player " + player[currentPlayer].getName(), Snackbar.LENGTH_LONG).show();
+                Snackbar.make(getView(), "Free token for Player " + player[currentPlayer].getName() + ". Round continues for Player " + player[currentPlayer].getName(), Snackbar.LENGTH_LONG).show();
                 player[currentPlayer].addToken();
                 checkEndGameOrRound();
                 spinWheel();
@@ -264,9 +265,9 @@ public class WheelFragment extends Fragment {
             public void onFinish() {
                 if(dialog.isShowing()) {
                     dialog.dismiss();
+                    Snackbar.make(getView(), "Player " + player[currentPlayer].getName() + " ran out of time to answer question.", Snackbar.LENGTH_LONG).show();
                     player[currentPlayer].decreaseRoundScore(currentQuestion.getPointValue());
-                    if(player[currentPlayer].getTokens() >= 1)
-                    {
+                    if(player[currentPlayer].getTokens() >= 1) {
                         freeToken();
                     }
                     else {
@@ -284,8 +285,7 @@ public class WheelFragment extends Fragment {
         }.start();
     }
 
-    public void nextPlayer()
-    {
+    public void nextPlayer() {
         currentPlayer = (currentPlayer+1)%player.length;
         txtPlayer.setText("Player: " + (currentPlayer + 1));
     }
@@ -328,8 +328,7 @@ public class WheelFragment extends Fragment {
         builder.create().show();
     }
 
-    public void freeToken()
-    {
+    public void freeToken() {
         AlertDialog.Builder builder =  new  AlertDialog.Builder(getActivity())
                 .setTitle("Player " + player[currentPlayer].getName() + " has a token available, would they like to use it to continue their turn?")
                 .setPositiveButton("Yes",
@@ -350,8 +349,7 @@ public class WheelFragment extends Fragment {
         builder.create().show();
     }
 
-    private void checkEndGameOrRound()
-    {
+    private void checkEndGameOrRound()  {
         txtResult.setText("Spins Remaining: " + spinCounter);
 
         if (--spinCounter <= 0) {
@@ -384,7 +382,7 @@ public class WheelFragment extends Fragment {
 
                 // If 50 spins have occurred in Round 1, Start Round 2
                 scoreModifier = 2;
-                spinCounter = 50;
+                spinCounter = roundSpins;
                 txtResult.setText("Spin Result: " + spinCounter);
             }
         }
