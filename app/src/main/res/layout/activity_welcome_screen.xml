@@ -37,7 +37,8 @@
         android:layout_marginBottom="30dp"
         android:layout_marginTop="96dp"
         android:text="Select # of players:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textStyle="bold"
+        android:textSize="48sp" />
 
     <Button
         android:id="@+id/start_button"

@@ -364,7 +364,14 @@ public class WheelFragment extends Fragment {
                 startActivity(intent);
             }
             else {
-                Snackbar.make(getView(), "Round 2 is beginning!", Snackbar.LENGTH_LONG).show();
+                new CountDownTimer(2000, 1000) {
+                    public void onFinish() {
+                        Snackbar.make(getView(), "Round 2 is beginning!", Snackbar.LENGTH_LONG).show();
+                    }
+                    public void onTick(long millisUntilFinished) {
+
+                    }
+                }.start();
 
                 ((MainActivity) getActivity()).resetForRoundTwo();
 
