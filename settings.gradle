@@ -1,1 +1,1 @@
-include ':app', ':fortune', ':intro'
+include ':app', ':fortune'

@@ -349,10 +349,10 @@ public class WheelFragment extends Fragment {
         builder.create().show();
     }
 
-    private void checkEndGameOrRound()  {
+    private void checkEndGameOrRound() {
         txtResult.setText("Spins Remaining: " + spinCounter);
 
-        if (--spinCounter <= 0) {
+        if (spinCounter-- <= 0) {
 
             //Game is over, show end screen
             if (scoreModifier == 2)
