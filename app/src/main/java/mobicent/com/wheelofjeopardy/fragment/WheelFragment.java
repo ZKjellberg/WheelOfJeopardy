@@ -40,7 +40,7 @@ public class WheelFragment extends Fragment {
     int scoreModifier;
     Player[] player;
     int currentPlayer;
-    int roundSpins = 10;    // This should be 50 in the release
+    int roundSpins = 50;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
