@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         try {
-            stream = getAssets().open("test.xml");
+            stream = getAssets().open("round1.xml");
         } catch (IOException e) {
             e.printStackTrace();
         }
